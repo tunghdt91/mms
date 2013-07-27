@@ -12,8 +12,11 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
 	<![endif]-->
 
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
+    <?php
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/style.css');
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/main.css');
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/form.css');
+    ?>
     <?php Yii::app()->bootstrap->register();?>
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
@@ -21,22 +24,33 @@
 
 <body>
 
-<div class="container" id="page">
-
-	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
-	</div><!-- header -->
+<div class="row-fluid" id="page">
 
 	<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-			),
-		)); ?>
+		<?php
+        $this->widget('bootstrap.widgets.TbNavbar', array(
+            'collapse' => true,
+            'brand' => 'MMS',
+            'brandUrl' => '#',
+            'items' => array(
+                array(
+                    'class' => 'bootstrap.widgets.TbMenu',
+                    'items' => array(
+                        array('label' => 'Trang chủ', 'url' => array('/home/index')),
+                        array('label' => 'Liên hệ', 'url' => array('#')),
+                    )
+                ),
+                array (
+                    'class' => 'bootstrap.widgets.TbMenu',
+                    'htmlOptions'=>array('class'=>'pull-right'),
+                    'items' => array(
+                        array('label' => 'Đăng nhập', 'url' => array('/user/signin'), 'visible' => Yii::app()->user->isGuest),
+                        array('label' => 'Đăng xuất (' . Yii::app()->user->name . ')', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest)
+                    )
+                )
+            ),
+        ));
+        ?>
 	</div><!-- mainmenu -->
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
