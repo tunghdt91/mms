@@ -21,3 +21,219 @@ Stack trace:
 REQUEST_URI=/mms/index.php?r=site/login
 HTTP_REFERER=http://localhost/mms/
 ---
+2013/07/27 23:02:57 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "index".' in /home/quannt/php_projects/framework/web/CController.php:878
+Stack trace:
+#0 /home/quannt/php_projects/framework/web/CController.php(782): CController->renderPartial('index', NULL, true)
+#1 /home/quannt/php_projects/mms/protected/controllers/SiteController.php(32): CController->render('index')
+#2 /home/quannt/php_projects/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#3 /home/quannt/php_projects/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /home/quannt/php_projects/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /home/quannt/php_projects/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /home/quannt/php_projects/framework/web/CWebApplication.php(282): CController->run('index')
+#7 /home/quannt/php_projects/framework/web/CWebApplication.php(141): CWebApplication->runController('site/index')
+#8 /home/quannt/php_projects/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#9 /home/quannt/php_projects/mms/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/mms/index.php?r=site/index
+HTTP_REFERER=http://localhost/mms/index.php?r=site/page&view=about
+---
+2013/07/27 23:09:25 [error] [php] include(LoginForm.php): failed to open stream: No such file or directory (/home/quannt/php_projects/framework/YiiBase.php:421)
+Stack trace:
+#0 /home/quannt/php_projects/mms/protected/controllers/SiteController.php(80): spl_autoload_call()
+#1 /home/quannt/php_projects/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#2 /home/quannt/php_projects/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/quannt/php_projects/framework/web/CController.php(286): SiteController->runAction()
+#4 /home/quannt/php_projects/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#5 /home/quannt/php_projects/framework/web/CWebApplication.php(282): SiteController->run()
+#6 /home/quannt/php_projects/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/quannt/php_projects/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/quannt/php_projects/mms/index.php(13): CWebApplication->run()
+REQUEST_URI=/mms/index.php?r=site/login
+in /home/quannt/php_projects/mms/protected/controllers/SiteController.php (80)
+in /home/quannt/php_projects/mms/index.php (13)
+2013/07/27 23:09:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "signgin".' in /home/quannt/php_projects/framework/web/CController.php:483
+Stack trace:
+#0 /home/quannt/php_projects/framework/web/CController.php(270): CController->missingAction('signgin')
+#1 /home/quannt/php_projects/framework/web/CWebApplication.php(282): CController->run('signgin')
+#2 /home/quannt/php_projects/framework/web/CWebApplication.php(141): CWebApplication->runController('user/signgin')
+#3 /home/quannt/php_projects/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /home/quannt/php_projects/mms/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mms/index.php?r=user/signgin
+HTTP_REFERER=http://localhost/mms/
+---
+2013/07/27 23:10:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "signgin".' in /home/quannt/php_projects/framework/web/CController.php:483
+Stack trace:
+#0 /home/quannt/php_projects/framework/web/CController.php(270): CController->missingAction('signgin')
+#1 /home/quannt/php_projects/framework/web/CWebApplication.php(282): CController->run('signgin')
+#2 /home/quannt/php_projects/framework/web/CWebApplication.php(141): CWebApplication->runController('user/signgin')
+#3 /home/quannt/php_projects/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /home/quannt/php_projects/mms/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mms/index.php?r=user/signgin
+HTTP_REFERER=http://localhost/mms/
+---
+2013/07/27 23:15:00 [error] [exception.CException] exception 'CException' with message 'Property "SigninForm.Ghi nhớ tài khoản" is not defined.' in /home/quannt/php_projects/framework/base/CComponent.php:130
+Stack trace:
+#0 /home/quannt/php_projects/framework/web/helpers/CHtml.php(2255): CComponent->__get('Ghi nh??? t??i ...')
+#1 /home/quannt/php_projects/framework/web/helpers/CHtml.php(1506): CHtml::resolveValue(Object(SigninForm), 'Ghi nh??? t??i ...')
+#2 /home/quannt/php_projects/mms/protected/views/user/signin.php(26): CHtml::activeCheckBox(Object(SigninForm), 'Ghi nh??? t??i ...')
+#3 /home/quannt/php_projects/framework/web/CBaseController.php(126): require('/home/quannt/ph...')
+#4 /home/quannt/php_projects/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/quannt/ph...', Array, true)
+#5 /home/quannt/php_projects/framework/web/CController.php(869): CBaseController->renderFile('/home/quannt/ph...', Array, true)
+#6 /home/quannt/php_projects/framework/web/CController.php(782): CController->renderPartial('signin', Array, true)
+#7 /home/quannt/php_projects/mms/protected/controllers/UserController.php(15): CController->render('signin', Array)
+#8 /home/quannt/php_projects/framework/web/actions/CInlineAction.php(49): UserController->actionSignIn()
+#9 /home/quannt/php_projects/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /home/quannt/php_projects/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /home/quannt/php_projects/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/quannt/php_projects/framework/web/CWebApplication.php(282): CController->run('signin')
+#13 /home/quannt/php_projects/framework/web/CWebApplication.php(141): CWebApplication->runController('user/signin')
+#14 /home/quannt/php_projects/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /home/quannt/php_projects/mms/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/mms/index.php?r=user/signin
+HTTP_REFERER=http://localhost/mms/index.php?r=user/signin
+---
+2013/07/27 23:39:49 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "contact".' in /home/quannt/php_projects/framework/web/CController.php:878
+Stack trace:
+#0 /home/quannt/php_projects/framework/web/CController.php(782): CController->renderPartial('contact', Array, true)
+#1 /home/quannt/php_projects/mms/protected/controllers/SiteController.php(72): CController->render('contact', Array)
+#2 /home/quannt/php_projects/framework/web/actions/CInlineAction.php(49): SiteController->actionContact()
+#3 /home/quannt/php_projects/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /home/quannt/php_projects/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /home/quannt/php_projects/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /home/quannt/php_projects/framework/web/CWebApplication.php(282): CController->run('contact')
+#7 /home/quannt/php_projects/framework/web/CWebApplication.php(141): CWebApplication->runController('site/contact')
+#8 /home/quannt/php_projects/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#9 /home/quannt/php_projects/mms/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/mms/index.php?r=site/contact
+HTTP_REFERER=http://localhost/mms/index.php?r=user/signin
+---
+2013/07/27 23:39:54 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "contact".' in /home/quannt/php_projects/framework/web/CController.php:878
+Stack trace:
+#0 /home/quannt/php_projects/framework/web/CController.php(782): CController->renderPartial('contact', Array, true)
+#1 /home/quannt/php_projects/mms/protected/controllers/SiteController.php(72): CController->render('contact', Array)
+#2 /home/quannt/php_projects/framework/web/actions/CInlineAction.php(49): SiteController->actionContact()
+#3 /home/quannt/php_projects/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /home/quannt/php_projects/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /home/quannt/php_projects/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /home/quannt/php_projects/framework/web/CWebApplication.php(282): CController->run('contact')
+#7 /home/quannt/php_projects/framework/web/CWebApplication.php(141): CWebApplication->runController('site/contact')
+#8 /home/quannt/php_projects/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#9 /home/quannt/php_projects/mms/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/mms/index.php?r=site/contact
+HTTP_REFERER=http://localhost/mms/index.php?r=home/index
+---
+2013/07/27 23:40:58 [error] [php] Undefined offset: 0 (/home/quannt/php_projects/framework/zii/widgets/CMenu.php:308)
+Stack trace:
+#0 /home/quannt/php_projects/framework/zii/widgets/CMenu.php(156): TbMenu->normalizeItems()
+#1 /home/quannt/php_projects/mms/protected/extensions/bootstrap/widgets/TbMenu.php(46): TbMenu->init()
+#2 /home/quannt/php_projects/framework/web/CBaseController.php(147): TbMenu->init()
+#3 /home/quannt/php_projects/framework/web/CBaseController.php(172): HomeController->createWidget()
+#4 /home/quannt/php_projects/mms/protected/extensions/bootstrap/widgets/TbNavbar.php(155): HomeController->widget()
+#5 /home/quannt/php_projects/framework/web/CBaseController.php(173): TbNavbar->run()
+#6 /home/quannt/php_projects/mms/protected/views/layouts/main.php(52): HomeController->widget()
+#7 /home/quannt/php_projects/framework/web/CBaseController.php(126): require()
+#8 /home/quannt/php_projects/framework/web/CBaseController.php(95): HomeController->renderInternal()
+#9 /home/quannt/php_projects/framework/web/widgets/CContentDecorator.php(76): HomeController->renderFile()
+#10 /home/quannt/php_projects/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#11 /home/quannt/php_projects/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#12 /home/quannt/php_projects/framework/web/CBaseController.php(206): CContentDecorator->run()
+#13 /home/quannt/php_projects/framework/web/CBaseController.php(300): HomeController->endWidget()
+#14 /home/quannt/php_projects/mms/protected/views/layouts/column1.php(6): HomeController->endContent()
+#15 /home/quannt/php_projects/framework/web/CBaseController.php(126): require()
+#16 /home/quannt/php_projects/framework/web/CBaseController.php(95): HomeController->renderInternal()
+#17 /home/quannt/php_projects/framework/web/CController.php(784): HomeController->renderFile()
+#18 /home/quannt/php_projects/mms/protected/controllers/HomeController.php(8): HomeController->render()
+#19 /home/quannt/php_projects/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#20 /home/quannt/php_projects/framework/web/CController.php(308): CInlineAction->runWithParams()
+#21 /home/quannt/php_projects/framework/web/CController.php(286): HomeController->runAction()
+#22 /home/quannt/php_projects/framework/web/CController.php(265): HomeController->runActionWithFilters()
+#23 /home/quannt/php_projects/framework/web/CWebApplication.php(282): HomeController->run()
+#24 /home/quannt/php_projects/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#25 /home/quannt/php_projects/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#26 /home/quannt/php_projects/mms/index.php(13): CWebApplication->run()
+REQUEST_URI=/mms/index.php?r=home/index
+in /home/quannt/php_projects/mms/protected/extensions/bootstrap/widgets/TbBaseMenu.php (193)
+in /home/quannt/php_projects/mms/protected/extensions/bootstrap/widgets/TbMenu.php (46)
+in /home/quannt/php_projects/mms/protected/extensions/bootstrap/widgets/TbNavbar.php (155)
+2013/07/27 23:41:06 [error] [php] Undefined offset: 0 (/home/quannt/php_projects/framework/zii/widgets/CMenu.php:308)
+Stack trace:
+#0 /home/quannt/php_projects/framework/zii/widgets/CMenu.php(156): TbMenu->normalizeItems()
+#1 /home/quannt/php_projects/mms/protected/extensions/bootstrap/widgets/TbMenu.php(46): TbMenu->init()
+#2 /home/quannt/php_projects/framework/web/CBaseController.php(147): TbMenu->init()
+#3 /home/quannt/php_projects/framework/web/CBaseController.php(172): HomeController->createWidget()
+#4 /home/quannt/php_projects/mms/protected/extensions/bootstrap/widgets/TbNavbar.php(155): HomeController->widget()
+#5 /home/quannt/php_projects/framework/web/CBaseController.php(173): TbNavbar->run()
+#6 /home/quannt/php_projects/mms/protected/views/layouts/main.php(52): HomeController->widget()
+#7 /home/quannt/php_projects/framework/web/CBaseController.php(126): require()
+#8 /home/quannt/php_projects/framework/web/CBaseController.php(95): HomeController->renderInternal()
+#9 /home/quannt/php_projects/framework/web/widgets/CContentDecorator.php(76): HomeController->renderFile()
+#10 /home/quannt/php_projects/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#11 /home/quannt/php_projects/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#12 /home/quannt/php_projects/framework/web/CBaseController.php(206): CContentDecorator->run()
+#13 /home/quannt/php_projects/framework/web/CBaseController.php(300): HomeController->endWidget()
+#14 /home/quannt/php_projects/mms/protected/views/layouts/column1.php(6): HomeController->endContent()
+#15 /home/quannt/php_projects/framework/web/CBaseController.php(126): require()
+#16 /home/quannt/php_projects/framework/web/CBaseController.php(95): HomeController->renderInternal()
+#17 /home/quannt/php_projects/framework/web/CController.php(784): HomeController->renderFile()
+#18 /home/quannt/php_projects/mms/protected/controllers/HomeController.php(8): HomeController->render()
+#19 /home/quannt/php_projects/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#20 /home/quannt/php_projects/framework/web/CController.php(308): CInlineAction->runWithParams()
+#21 /home/quannt/php_projects/framework/web/CController.php(286): HomeController->runAction()
+#22 /home/quannt/php_projects/framework/web/CController.php(265): HomeController->runActionWithFilters()
+#23 /home/quannt/php_projects/framework/web/CWebApplication.php(282): HomeController->run()
+#24 /home/quannt/php_projects/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#25 /home/quannt/php_projects/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#26 /home/quannt/php_projects/mms/index.php(13): CWebApplication->run()
+REQUEST_URI=/mms/
+in /home/quannt/php_projects/mms/protected/extensions/bootstrap/widgets/TbBaseMenu.php (193)
+in /home/quannt/php_projects/mms/protected/extensions/bootstrap/widgets/TbMenu.php (46)
+in /home/quannt/php_projects/mms/protected/extensions/bootstrap/widgets/TbNavbar.php (155)
+2013/07/27 23:41:27 [error] [php] Undefined offset: 0 (/home/quannt/php_projects/framework/zii/widgets/CMenu.php:308)
+Stack trace:
+#0 /home/quannt/php_projects/framework/zii/widgets/CMenu.php(156): TbMenu->normalizeItems()
+#1 /home/quannt/php_projects/mms/protected/extensions/bootstrap/widgets/TbMenu.php(46): TbMenu->init()
+#2 /home/quannt/php_projects/framework/web/CBaseController.php(147): TbMenu->init()
+#3 /home/quannt/php_projects/framework/web/CBaseController.php(172): HomeController->createWidget()
+#4 /home/quannt/php_projects/mms/protected/extensions/bootstrap/widgets/TbNavbar.php(155): HomeController->widget()
+#5 /home/quannt/php_projects/framework/web/CBaseController.php(173): TbNavbar->run()
+#6 /home/quannt/php_projects/mms/protected/views/layouts/main.php(52): HomeController->widget()
+#7 /home/quannt/php_projects/framework/web/CBaseController.php(126): require()
+#8 /home/quannt/php_projects/framework/web/CBaseController.php(95): HomeController->renderInternal()
+#9 /home/quannt/php_projects/framework/web/widgets/CContentDecorator.php(76): HomeController->renderFile()
+#10 /home/quannt/php_projects/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#11 /home/quannt/php_projects/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#12 /home/quannt/php_projects/framework/web/CBaseController.php(206): CContentDecorator->run()
+#13 /home/quannt/php_projects/framework/web/CBaseController.php(300): HomeController->endWidget()
+#14 /home/quannt/php_projects/mms/protected/views/layouts/column1.php(6): HomeController->endContent()
+#15 /home/quannt/php_projects/framework/web/CBaseController.php(126): require()
+#16 /home/quannt/php_projects/framework/web/CBaseController.php(95): HomeController->renderInternal()
+#17 /home/quannt/php_projects/framework/web/CController.php(784): HomeController->renderFile()
+#18 /home/quannt/php_projects/mms/protected/controllers/HomeController.php(8): HomeController->render()
+#19 /home/quannt/php_projects/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#20 /home/quannt/php_projects/framework/web/CController.php(308): CInlineAction->runWithParams()
+#21 /home/quannt/php_projects/framework/web/CController.php(286): HomeController->runAction()
+#22 /home/quannt/php_projects/framework/web/CController.php(265): HomeController->runActionWithFilters()
+#23 /home/quannt/php_projects/framework/web/CWebApplication.php(282): HomeController->run()
+#24 /home/quannt/php_projects/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#25 /home/quannt/php_projects/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#26 /home/quannt/php_projects/mms/index.php(13): CWebApplication->run()
+REQUEST_URI=/mms/
+in /home/quannt/php_projects/mms/protected/extensions/bootstrap/widgets/TbBaseMenu.php (193)
+in /home/quannt/php_projects/mms/protected/extensions/bootstrap/widgets/TbMenu.php (46)
+in /home/quannt/php_projects/mms/protected/extensions/bootstrap/widgets/TbNavbar.php (155)
+2013/07/27 23:56:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "forgetPassword".' in /home/quannt/php_projects/framework/web/CController.php:483
+Stack trace:
+#0 /home/quannt/php_projects/framework/web/CController.php(270): CController->missingAction('forgetPassword')
+#1 /home/quannt/php_projects/framework/web/CWebApplication.php(282): CController->run('forgetPassword')
+#2 /home/quannt/php_projects/framework/web/CWebApplication.php(141): CWebApplication->runController('user/forgetPass...')
+#3 /home/quannt/php_projects/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /home/quannt/php_projects/mms/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mms/index.php?r=user/forgetPassword
+HTTP_REFERER=http://localhost/mms/index.php?r=user/signin
+---
