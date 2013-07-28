@@ -29,6 +29,6 @@ $this->widget('bootstrap.widgets.TbAlert');
             </div>
         </div>
         <div style="height:20px"></div>
-        <div class="row"><?php echo CHtml::submitButton('Đăng nhập', array('class' => 'span2 offset5')); ?></div>
+        <div class="row"><?php echo CHtml::submitButton('Đăng nhập', array('class' => 'span3 offset5')); ?></div>
     </form>
 </div>

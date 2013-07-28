@@ -45,7 +45,7 @@
                     'htmlOptions'=>array('class'=>'pull-right'),
                     'items' => array(
                         array('label' => 'Đăng nhập', 'icon' => 'user', 'url' => array('/user/signin'), 'visible' => Yii::app()->user->isGuest),
-                        array('label' => 'Đăng xuất (' . Yii::app()->user->name . ')', 'icon' => 'user', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest)
+                        array('label' => 'Đăng xuất (' . Yii::app()->user->name . ')', 'icon' => 'user', 'url' => array('/user/signout'), 'visible' => !Yii::app()->user->isGuest)
                     )
                 )
             ),
