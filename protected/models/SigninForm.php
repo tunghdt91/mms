@@ -17,7 +17,8 @@ class SigninForm extends CFormModel
     {
         return array(
             // username and password are required
-            array('username, password', 'required'),
+            array('username', 'required','message'=>'Tên đăng nhập không được để trống'),
+            array('password', 'required','message'=>'Mật khẩu không được để trống'),
             // rememberMe needs to be a boolean
             array('rememberMe', 'boolean'),
             // password needs to be authenticated
@@ -44,7 +45,7 @@ class SigninForm extends CFormModel
         if (!$this->hasErrors()) {
             $this->_identity = new UserIdentity($this->username, $this->password);
             if (!$this->_identity->authenticate()) {
-                $this->addError('password', 'Incorrect username or password.');
+                $this->addError('password', 'Sai tên đăng nhập hoặc mật khẩu.');
             }
         }
     }
