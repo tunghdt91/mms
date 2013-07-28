@@ -36,16 +36,16 @@
                 array(
                     'class' => 'bootstrap.widgets.TbMenu',
                     'items' => array(
-                        array('label' => 'Trang chủ', 'url' => array('/home/index')),
-                        array('label' => 'Liên hệ', 'url' => array('#')),
+                        array('label' => 'Trang chủ','icon' => 'home', 'url' => array('/home/index')),
+                        array('label' => 'Liên hệ', 'url' => array('#'), 'icon' => 'envelope'),
                     )
                 ),
                 array (
                     'class' => 'bootstrap.widgets.TbMenu',
                     'htmlOptions'=>array('class'=>'pull-right'),
                     'items' => array(
-                        array('label' => 'Đăng nhập', 'url' => array('/user/signin'), 'visible' => Yii::app()->user->isGuest),
-                        array('label' => 'Đăng xuất (' . Yii::app()->user->name . ')', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest)
+                        array('label' => 'Đăng nhập', 'icon' => 'user', 'url' => array('/user/signin'), 'visible' => Yii::app()->user->isGuest),
+                        array('label' => 'Đăng xuất (' . Yii::app()->user->name . ')', 'icon' => 'user', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest)
                     )
                 )
             ),
@@ -58,6 +58,7 @@
 		)); ?><!-- breadcrumbs -->
 	<?php endif?>
 
+    <?php echo CHtml::image(Yii::app()->baseUrl.'/images/banner.png', null, array("width"=>1372)); ?>
 	<?php echo $content; ?>
 
 	<div class="clear"></div>

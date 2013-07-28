@@ -18,6 +18,8 @@ body
 #page
 {
     height: 100%;
+    width: 80%;
+    margin:0 auto;
 }
 
 #mainmenu
@@ -28,7 +30,7 @@ body
 .main-page
 {    
     position: relative;        
-    width: 85%;    
+    width: 80%;    
     height: 100%;
     margin: auto;
 }
@@ -41,23 +43,6 @@ body
     border-bottom: none;
 }
 
-#stream 
-{
-    width: 20%;        
-    height: 100%;    
-    border: #C9E0ED solid 1px;
-    border-bottom: none;
-    position:fixed;
-    top: 40px;
-    right: 5%;
-    border-left-color: rgb(178, 185, 201);
-    border-left-width: 1px;
-    border-right-color: rgb(178, 185, 201);
-    border-right-width: 1px;
-    box-shadow: rgb(178, 185, 201) 2px 0px 2px -2px inset;
-    overflow-y: scroll;
-    padding-bottom: 30px;
-}
 
 
 .container 
@@ -77,21 +62,8 @@ body
 .clear{
     height: 50px;
 }
-
-.navbar-inverse .brand {
-    color: white;
-    font-weight: bold;
-}
-.navbar-inverse .navbar-inner {
-    background: #3B5998;
-    border: 1px solid #3B5998;
-}
-
-.navbar-inverse .navbar-search .search-query {
-    background: white;
-    color: black;
-    boder: 1px solid #3B5998;
-}
-.navbar-inverse .nav .active > a, .navbar-inverse .nav .active > a:hover, .navbar-inverse .nav .active > a:focus{
-    background: #3B5998;
+.navbar-inner {
+    width: 80%;
+    margin:0 auto;
+    background-image: linear-gradient(to bottom, white, white);
 }
