@@ -12,9 +12,9 @@ class UserController extends Controller
         if (isset($_POST['SigninForm'])) {
             $form->attributes = $_POST['SigninForm'];
             if ($form->validate() && $form->login()) {
-                    $this->afterSignIn();
-                    Yii::app()->request->redirect(Yii::app()->user->returnUrl);
-                }
+                $this->afterSignIn();
+                Yii::app()->request->redirect(Yii::app()->user->returnUrl);
+            }
         }
         $this->render('signin', array('form' => $form));
     }
@@ -28,14 +28,14 @@ class UserController extends Controller
         
     }
 
-    /*
+    /**
+     * Logs out the current user and redirect to homepage.
      * @author QuanNT
      */
-
-    public function actionSignUp()
+    public function actionSignout()
     {
-        $form = new SignUpForm;
-        $this->render('signup', array('form' => $form));
+        Yii::app()->user->logout();
+        Yii::app()->request->redirect($this->createUrl('home/index'));
     }
 
 }
