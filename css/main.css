@@ -27,29 +27,6 @@ body
     height: 40px; 
 }
 
-.main-page
-{    
-    position: relative;        
-    width: 80%;    
-    height: 100%;
-    margin: auto;
-}
-
-#main-content
-{    
-    width: 75%;
-    float: left;
-    height: 100%;        
-    border-bottom: none;
-}
-
-
-
-.container 
-{
-    width: 90% !important;
-}
-
 #footer
 {
     margin-top: 40px;
@@ -59,11 +36,24 @@ body
     border-top: 1px solid #C9E0ED;
 }
 
-.clear{
-    height: 50px;
+.clear {
+clear: both;
 }
 .navbar-inner {
     width: 80%;
     margin:0 auto;
     background-image: linear-gradient(to bottom, white, white);
+}
+.all-content {
+    margin-top: -20px;
+}
+#slide-bar {
+    margin-top: 10px;
+    float: left;
+    width: 20%;
+}
+#content {
+    float: right;
+    width: 79%;
+    margin :0 auto;
 }

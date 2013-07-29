@@ -5,7 +5,6 @@ $this->widget('bootstrap.widgets.TbAlert');
     <div class="row text-center">
         <h1> Đăng nhập</h1>
     </div>
-    <div style="height:50px"></div>
     <form method='post'>
         <?php echo CHtml::errorSummary($form); ?>
         <div class="row">
@@ -29,6 +28,7 @@ $this->widget('bootstrap.widgets.TbAlert');
             </div>
         </div>
         <div style="height:20px"></div>
-        <div class="row"><?php echo CHtml::submitButton('Đăng nhập', array('class' => 'span3 offset5')); ?></div>
+
+        <div class="row"><?php echo CHtml::submitButton('Đăng nhập', array('class' => 'span3 offset5 btn btn-primary')); ?></div>
     </form>
 </div>

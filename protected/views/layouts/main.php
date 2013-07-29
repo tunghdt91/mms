@@ -59,8 +59,41 @@
 	<?php endif?>
 
     <?php echo CHtml::image(Yii::app()->baseUrl.'/images/banner.png', null, array("width"=>1372)); ?>
-	<?php echo $content; ?>
-
+    <div id="all-content">
+        <div id="slide-bar">
+            <div class="sd-menu">
+                Danh Mục Quản Lý
+            </div>
+            <div class='well well-small'>
+                <?php echo CHtml::link('Thông Tin Cá Nhân', '#'); ?>
+            </div>
+            <div class='well well-small'>
+                <?php echo CHtml::link('Tin Học Ngoại Ngữ', '#'); ?>
+            </div>
+            <div class='well well-small'>
+                <?php echo CHtml::link('Quan Hệ Xã Hội', '#'); ?>
+            </div>
+            <div class='well well-small'>
+                <?php echo CHtml::link('Kinh tế gia đình', '#'); ?>
+            </div>    
+            <div class='well well-small'>
+                <?php echo CHtml::link('Đánh giá đoàn viên', '#'); ?>
+            </div>
+            <div class='well well-small'>
+                <?php echo CHtml::link('Lý lịch làm việc', '#'); ?>
+            </div>
+            <div class='well well-small'>
+                <?php echo CHtml::link('Khen thưởng-Kỷ luật', '#'); ?>
+            </div>
+            <div class='well well-small'>
+                <?php echo CHtml::link('Quá trình học tập', '#'); ?>
+            </div>
+            <div class='well well-small'>
+                <?php echo CHtml::link('Thông tin khác', '#'); ?>
+            </div>
+        </div>    
+        <?php echo $content; ?>
+    </div>
 	<div class="clear"></div>
 
 	<div id="footer">
