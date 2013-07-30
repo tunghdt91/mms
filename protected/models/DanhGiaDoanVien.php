@@ -23,100 +23,102 @@
  */
 class DanhGiaDoanVien extends CActiveRecord
 {
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @param string $className active record class name.
-	 * @return DanhGiaDoanVien the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
 
-	/**
-	 * @return string the associated database table name
-	 */
-	public function tableName()
-	{
-		return 'danh_gia_doan_vien';
-	}
+    /**
+     * Returns the static model of the specified AR class.
+     * @param string $className active record class name.
+     * @return DanhGiaDoanVien the static model class
+     */
+    public static function model($className = __CLASS__)
+    {
+        return parent::model($className);
+    }
 
-	/**
-	 * @return array validation rules for model attributes.
-	 */
-	public function rules()
-	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
-		return array(
-			array('id', 'required'),
-			array('id, doan_vien_id, tieu_chi_id, diem, xep_loai, can_bo_danh_gia_id', 'numerical', 'integerOnly'=>true),
-			array('danh_gia_cua_doan_vien, danh_gia_cua_chi_doan, ghi_chu, created_at, update_at', 'safe'),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('id, doan_vien_id, tieu_chi_id, diem, xep_loai, danh_gia_cua_doan_vien, danh_gia_cua_chi_doan, ghi_chu, can_bo_danh_gia_id, created_at, update_at', 'safe', 'on'=>'search'),
-		);
-	}
+    /**
+     * @return string the associated database table name
+     */
+    public function tableName()
+    {
+        return 'danh_gia_doan_vien';
+    }
 
-	/**
-	 * @return array relational rules.
-	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
-		return array(
-			'doan_vien' => array(self::BELONGS_TO, 'DoanVien', 'doan_vien_id'),
-			'tieu_chi' => array(self::BELONGS_TO, 'TieuChi', 'tieu_chi_id'),
-			'can_bo_danh_gia' => array(self::BELONGS_TO, 'DoanVien', 'can_bo_danh_gia_id'),
-		);
-	}
+    /**
+     * @return array validation rules for model attributes.
+     */
+    public function rules()
+    {
+        // NOTE: you should only define rules for those attributes that
+        // will receive user inputs.
+        return array(
+            array('id', 'required'),
+            array('id, doan_vien_id, tieu_chi_id, diem, xep_loai, can_bo_danh_gia_id', 'numerical', 'integerOnly' => true),
+            array('danh_gia_cua_doan_vien, danh_gia_cua_chi_doan, ghi_chu, created_at, update_at', 'safe'),
+            // The following rule is used by search().
+            // Please remove those attributes that should not be searched.
+            array('id, doan_vien_id, tieu_chi_id, diem, xep_loai, danh_gia_cua_doan_vien, danh_gia_cua_chi_doan, ghi_chu, can_bo_danh_gia_id, created_at, update_at', 'safe', 'on' => 'search'),
+        );
+    }
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'id' => 'ID',
-			'doan_vien_id' => 'Doan Vien',
-			'tieu_chi_id' => 'Tieu Chi',
-			'diem' => 'Diem',
-			'xep_loai' => 'Xep Loai',
-			'danh_gia_cua_doan_vien' => 'Danh Gia Cua Doan Vien',
-			'danh_gia_cua_chi_doan' => 'Danh Gia Cua Chi Doan',
-			'ghi_chu' => 'Ghi Chu',
-			'can_bo_danh_gia_id' => 'Can Bo Danh Gia',
-			'created_at' => 'Created At',
-			'update_at' => 'Update At',
-		);
-	}
+    /**
+     * @return array relational rules.
+     */
+    public function relations()
+    {
+        // NOTE: you may need to adjust the relation name and the related
+        // class name for the relations automatically generated below.
+        return array(
+            'doan_vien' => array(self::BELONGS_TO, 'DoanVien', 'doan_vien_id'),
+            'tieu_chi' => array(self::BELONGS_TO, 'TieuChi', 'tieu_chi_id'),
+            'can_bo_danh_gia' => array(self::BELONGS_TO, 'DoanVien', 'can_bo_danh_gia_id'),
+        );
+    }
 
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-	 */
-	public function search()
-	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
+    /**
+     * @return array customized attribute labels (name=>label)
+     */
+    public function attributeLabels()
+    {
+        return array(
+            'id' => 'ID',
+            'doan_vien_id' => 'Đoàn Viên',
+            'tieu_chi_id' => 'Tiêu Chí',
+            'diem' => 'Điểm',
+            'xep_loai' => 'Xếp Loại',
+            'danh_gia_cua_doan_vien' => 'Đánh Giá Của Đoàn Viên',
+            'danh_gia_cua_chi_doan' => 'Đánh Giá Của Chi Đoàn',
+            'ghi_chu' => 'Ghi Chú',
+            'can_bo_danh_gia_id' => 'Cán Bộ Đánh Giá',
+            'created_at' => 'Created At',
+            'update_at' => 'Update At',
+        );
+    }
 
-		$criteria=new CDbCriteria;
+    /**
+     * Retrieves a list of models based on the current search/filter conditions.
+     * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+     */
+    public function search()
+    {
+        // Warning: Please modify the following code to remove attributes that
+        // should not be searched.
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('doan_vien_id',$this->doan_vien_id);
-		$criteria->compare('tieu_chi_id',$this->tieu_chi_id);
-		$criteria->compare('diem',$this->diem);
-		$criteria->compare('xep_loai',$this->xep_loai);
-		$criteria->compare('danh_gia_cua_doan_vien',$this->danh_gia_cua_doan_vien,true);
-		$criteria->compare('danh_gia_cua_chi_doan',$this->danh_gia_cua_chi_doan,true);
-		$criteria->compare('ghi_chu',$this->ghi_chu,true);
-		$criteria->compare('can_bo_danh_gia_id',$this->can_bo_danh_gia_id);
-		$criteria->compare('created_at',$this->created_at,true);
-		$criteria->compare('update_at',$this->update_at,true);
+        $criteria = new CDbCriteria;
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
-	}
+        $criteria->compare('id', $this->id);
+        $criteria->compare('doan_vien_id', $this->doan_vien_id);
+        $criteria->compare('tieu_chi_id', $this->tieu_chi_id);
+        $criteria->compare('diem', $this->diem);
+        $criteria->compare('xep_loai', $this->xep_loai);
+        $criteria->compare('danh_gia_cua_doan_vien', $this->danh_gia_cua_doan_vien, true);
+        $criteria->compare('danh_gia_cua_chi_doan', $this->danh_gia_cua_chi_doan, true);
+        $criteria->compare('ghi_chu', $this->ghi_chu, true);
+        $criteria->compare('can_bo_danh_gia_id', $this->can_bo_danh_gia_id);
+        $criteria->compare('created_at', $this->created_at, true);
+        $criteria->compare('update_at', $this->update_at, true);
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
+    }
+
 }

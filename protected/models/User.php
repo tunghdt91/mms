@@ -7,15 +7,17 @@
  * @property integer $id
  * @property string $username
  * @property string $password
- * @property string $name_display
+ * @property string $ten_hien_thi
  * @property string $email
- * @property integer $profile_union_member_id
- * @property string $activation
- * @property integer $staff_name
- * @property string $admin
+ * @property integer $doan_vien_id
+ * @property integer $kich_hoat
+ * @property string $ten_can_bo
+ * @property integer $admin
+ * @property string $created_at
+ * @property string $update_at
  *
  * The followings are the available model relations:
- * @property ProfileUnionMember $profileUnionMember
+ * @property DoanVien $doanVien
  */
 class User extends CActiveRecord
 {
@@ -46,12 +48,12 @@ class User extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('profile_union_member_id, staff_name', 'numerical', 'integerOnly' => true),
-            array('username, password, name_display, email', 'length', 'max' => 45),
-            array('activation, admin', 'safe'),
+            array('doan_vien_id, kich_hoat, admin', 'numerical', 'integerOnly' => true),
+            array('username, password, ten_hien_thi, email, ten_can_bo', 'length', 'max' => 255),
+            array('created_at, update_at', 'safe'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('id, username, password, name_display, email, profile_union_member_id, activation, staff_name, admin', 'safe', 'on' => 'search'),
+            array('id, username, password, ten_hien_thi, email, doan_vien_id, kich_hoat, ten_can_bo, admin, created_at, update_at', 'safe', 'on' => 'search'),
         );
     }
 
@@ -63,7 +65,7 @@ class User extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-            'profileUnionMember' => array(self::BELONGS_TO, 'ProfileUnionMember', 'profile_union_member_id'),
+            'doanVien' => array(self::BELONGS_TO, 'DoanVien', 'doan_vien_id'),
         );
     }
 
@@ -76,12 +78,14 @@ class User extends CActiveRecord
             'id' => 'ID',
             'username' => 'Username',
             'password' => 'Password',
-            'name_display' => 'Name Display',
+            'ten_hien_thi' => 'Ten Hien Thi',
             'email' => 'Email',
-            'profile_union_member_id' => 'Profile Union Member',
-            'activation' => 'Activation',
-            'staff_name' => 'Staff Name',
+            'doan_vien_id' => 'Doan Vien',
+            'kich_hoat' => 'Kich Hoat',
+            'ten_can_bo' => 'Ten Can Bo',
             'admin' => 'Admin',
+            'created_at' => 'Created At',
+            'update_at' => 'Update At',
         );
     }
 
@@ -99,26 +103,26 @@ class User extends CActiveRecord
         $criteria->compare('id', $this->id);
         $criteria->compare('username', $this->username, true);
         $criteria->compare('password', $this->password, true);
-        $criteria->compare('name_display', $this->name_display, true);
+        $criteria->compare('ten_hien_thi', $this->ten_hien_thi, true);
         $criteria->compare('email', $this->email, true);
-        $criteria->compare('profile_union_member_id', $this->profile_union_member_id);
-        $criteria->compare('activation', $this->activation, true);
-        $criteria->compare('staff_name', $this->staff_name);
-        $criteria->compare('admin', $this->admin, true);
+        $criteria->compare('doan_vien_id', $this->doan_vien_id);
+        $criteria->compare('kich_hoat', $this->kich_hoat);
+        $criteria->compare('ten_can_bo', $this->ten_can_bo, true);
+        $criteria->compare('admin', $this->admin);
+        $criteria->compare('created_at', $this->created_at, true);
+        $criteria->compare('update_at', $this->update_at, true);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
         ));
     }
-
+    
     /**
      * @author Nguyễn Đức Hiếu
      * Mã hóa mật khẩu
      */
     public function encryptPassword($password)
     {
-//        $salt = sha1(md5($this->password));
-//        return md5(crypt($password, $salt));
         return md5($password);
     }
 
@@ -130,5 +134,5 @@ class User extends CActiveRecord
     {
         return $this->encryptPassword($password) === $this->password;
     }
-
+    
 }
