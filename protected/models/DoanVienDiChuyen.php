@@ -65,9 +65,9 @@ class DoanVienDiChuyen extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-            'doanVien' => array(self::BELONGS_TO, 'DoanVien', 'doan_vien_id'),
-            'donViDi' => array(self::BELONGS_TO, 'DonVi', 'don_vi_di_id'),
-            'donViDen' => array(self::BELONGS_TO, 'DonVi', 'don_vi_den_id'),
+            'doan_vien' => array(self::BELONGS_TO, 'DoanVien', 'doan_vien_id'),
+            'don_vi_di' => array(self::BELONGS_TO, 'DonVi', 'don_vi_di_id'),
+            'don_vi_den' => array(self::BELONGS_TO, 'DonVi', 'don_vi_den_id'),
         );
     }
 

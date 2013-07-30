@@ -80,14 +80,14 @@ class DonVi extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-            'doanViens' => array(self::HAS_MANY, 'DoanVien', 'don_vi_id'),
-            'doanVienDiChuyens' => array(self::HAS_MANY, 'DoanVienDiChuyen', 'don_vi_di_id'),
-            'doanVienDiChuyens1' => array(self::HAS_MANY, 'DoanVienDiChuyen', 'don_vi_den_id'),
+            'doan_vien_s' => array(self::HAS_MANY, 'DoanVien', 'don_vi_id'),
+            'doan_vien_chuyen_di_s' => array(self::HAS_MANY, 'DoanVienDiChuyen', 'don_vi_di_id'),
+            'doan_vien_chuyen_den_s' => array(self::HAS_MANY, 'DoanVienDiChuyen', 'don_vi_den_id'),
             'tinh' => array(self::BELONGS_TO, 'Tinh', 'tinh_id'),
             'huyen' => array(self::BELONGS_TO, 'Huyen', 'huyen_id'),
             'xa' => array(self::BELONGS_TO, 'Xa', 'xa_id'),
-            'donViTrucThuoc' => array(self::BELONGS_TO, 'DonVi', 'don_vi_truc_thuoc_id'),
-            'donVis' => array(self::HAS_MANY, 'DonVi', 'don_vi_truc_thuoc_id'),
+            'truc_thuoc_don_vi' => array(self::BELONGS_TO, 'DonVi', 'don_vi_truc_thuoc_id'),
+            'don_vi_truc_thuoc_s' => array(self::HAS_MANY, 'DonVi', 'don_vi_truc_thuoc_id'),
         );
     }
 

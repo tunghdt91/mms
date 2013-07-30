@@ -62,9 +62,9 @@ class Huyen extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-            'donVis' => array(self::HAS_MANY, 'DonVi', 'huyen_id'),
+            'don_vi_s' => array(self::HAS_MANY, 'DonVi', 'huyen_id'),
             'tinh' => array(self::BELONGS_TO, 'Tinh', 'tinh_id'),
-            'xas' => array(self::HAS_MANY, 'Xa', 'huyen_id'),
+            'xa_s' => array(self::HAS_MANY, 'Xa', 'huyen_id'),
         );
     }
 
