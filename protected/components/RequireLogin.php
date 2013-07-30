@@ -3,7 +3,7 @@
 class RequireLogin extends CBehavior
 {
 
-    public $allowed = array('home/index', 'user/signin', 'user/forgetPassword', 'user/resetPassword', 'user/signout');
+    public $allowed = array('home/index', 'user/signin', 'user/forgetPassword', 'user/resetPassword', 'user/signout', 'gii/model');
 
     public function attach($owner)
     {
@@ -14,7 +14,7 @@ class RequireLogin extends CBehavior
     {
         if (Yii::app()->user->isGuest && !$this->isAllowed()) {
             Yii::app()->user->setFlash('error', 'You must sign in first.');
-            Yii::app()->user->loginRequired();
+            //Yii::app()->user->loginRequired();
         }
     }
 
