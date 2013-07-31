@@ -36,6 +36,10 @@
  * @property integer $don_vi_id
  * @property string $created_at
  * @property string $update_at
+ * @property string $deleted_at
+ * @property string $CMTND
+ * @property string $ngay_cap
+ * @property string $noi_cap
  *
  * The followings are the available model relations:
  * @property DanhGiaDoanVien[] $danhGiaDoanViens
@@ -86,7 +90,7 @@ class DoanVien extends CActiveRecord
         // will receive user inputs.
         return array(
             array('gioi_tinh, que_quan, ho_khau_thuong_tru, ho_khau_tam_tru, dan_toc_id, ton_giao_id, nghe_nghiep_id, trinh_do_van_hoa, ky_nang_ngoai_ngu_id, ky_nang_tin_hoc_id, tinh_trang_suc_khoe, danh_hieu_id, ly_luan_chinh_tri_id, ban_id, chuc_vu_doan_id, trang_thai, don_vi_id', 'numerical', 'integerOnly' => true),
-            array('ma_doan_vien, ten, ho_ten_dem, bi_danh, email, dien_thoai, thanh_phan_gia_dinh_xuat_than, bang_cap_1, bang_cap_2', 'length', 'max' => 255),
+            array('ma_doan_vien, ten, ho_ten_dem, bi_danh, email, dien_thoai, thanh_phan_gia_dinh_xuat_than, bang_cap_1, bang_cap_2, CMTND, noi_cap', 'length', 'max' => 255),
             array('ngay_sinh, mo_ta_cong_viec, ngay_vao_doan, created_at, update_at', 'safe'),
             array('ten', 'required', 'message' => 'Tên không được bỏ trống.'),
             array('ho_ten_dem', 'required', 'message' => 'Họ tên đệm không được bỏ trống.'),
@@ -96,7 +100,7 @@ class DoanVien extends CActiveRecord
             array('ma_doan_vien, email', 'unique'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('id, ma_doan_vien, ten, ho_ten_dem, bi_danh, gioi_tinh, ngay_sinh, que_quan, ho_khau_thuong_tru, ho_khau_tam_tru, email, dien_thoai, dan_toc_id, ton_giao_id, thanh_phan_gia_dinh_xuat_than, nghe_nghiep_id, mo_ta_cong_viec, trinh_do_van_hoa, bang_cap_1, bang_cap_2, ky_nang_ngoai_ngu_id, ky_nang_tin_hoc_id, tinh_trang_suc_khoe, ngay_vao_doan, danh_hieu_id, ly_luan_chinh_tri_id, ban_id, chuc_vu_doan_id, trang_thai, don_vi_id, created_at, update_at', 'safe', 'on' => 'search'),
+            array('id, ma_doan_vien, ten, ho_ten_dem, bi_danh, gioi_tinh, ngay_sinh, que_quan, ho_khau_thuong_tru, ho_khau_tam_tru, email, dien_thoai, dan_toc_id, ton_giao_id, thanh_phan_gia_dinh_xuat_than, nghe_nghiep_id, mo_ta_cong_viec, trinh_do_van_hoa, bang_cap_1, bang_cap_2, ky_nang_ngoai_ngu_id, ky_nang_tin_hoc_id, tinh_trang_suc_khoe, ngay_vao_doan, CMTND, ngay_cap, noi_cap, danh_hieu_id, ly_luan_chinh_tri_id, ban_id, chuc_vu_doan_id, trang_thai, don_vi_id, created_at, update_at, deleted_at', 'safe', 'on' => 'search'),
         );
     }
 
@@ -124,7 +128,7 @@ class DoanVien extends CActiveRecord
             'ky_nang_tin_hoc' => array(self::BELONGS_TO, 'KyNangTinHoc', 'ky_nang_tin_hoc_id'),
             'ly_luan_chinh_tri' => array(self::BELONGS_TO, 'LyLuanChinhTri', 'ly_luan_chinh_tri_id'),
             'doan_vien_di_chuyen_s' => array(self::HAS_MANY, 'DoanVienDiChuyen', 'doan_vien_id'),
-            'user_s' => array(self::HAS_MANY, 'User', 'doan_vien_id'),
+            'user' => array(self::HAS_ONE, 'User', 'doan_vien_id'),
         );
     }
 
@@ -158,6 +162,9 @@ class DoanVien extends CActiveRecord
             'ky_nang_tin_hoc_id' => 'Kỹ Năng Tin Học',
             'tinh_trang_suc_khoe' => 'Tình Trạng Sức Khỏe',
             'ngay_vao_doan' => 'Ngày Vào Đoàn',
+            'CMTND' => 'CMTND',
+            'ngay_cap' => 'Ngày cấp',
+            'noi_cap' => 'Nơi cấp',
             'danh_hieu_id' => 'Danh Hiệu',
             'ly_luan_chinh_tri_id' => 'Lý Luận Chính Trị',
             'ban_id' => 'Ban',
@@ -166,6 +173,7 @@ class DoanVien extends CActiveRecord
             'don_vi_id' => 'Đơn Vị',
             'created_at' => 'Created At',
             'update_at' => 'Update At',
+            'deleted_at' => 'Deleted At',
         );
     }
 
@@ -204,6 +212,9 @@ class DoanVien extends CActiveRecord
         $criteria->compare('ky_nang_tin_hoc_id', $this->ky_nang_tin_hoc_id);
         $criteria->compare('tinh_trang_suc_khoe', $this->tinh_trang_suc_khoe);
         $criteria->compare('ngay_vao_doan', $this->ngay_vao_doan, true);
+        $criteria->compare('CMTND', $this->CMTND, true);
+        $criteria->compare('ngay_cap', $this->ngay_cap, true);
+        $criteria->compare('noi_cap', $this->noi_cap, true);
         $criteria->compare('danh_hieu_id', $this->danh_hieu_id);
         $criteria->compare('ly_luan_chinh_tri_id', $this->ly_luan_chinh_tri_id);
         $criteria->compare('ban_id', $this->ban_id);
@@ -212,6 +223,7 @@ class DoanVien extends CActiveRecord
         $criteria->compare('don_vi_id', $this->don_vi_id);
         $criteria->compare('created_at', $this->created_at, true);
         $criteria->compare('update_at', $this->update_at, true);
+        $criteria->compare('deleted_at', $this->deleted_at, true);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
