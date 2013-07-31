@@ -88,6 +88,12 @@ class DoanVien extends CActiveRecord
             array('gioi_tinh, que_quan, ho_khau_thuong_tru, ho_khau_tam_tru, dan_toc_id, ton_giao_id, nghe_nghiep_id, trinh_do_van_hoa, ky_nang_ngoai_ngu_id, ky_nang_tin_hoc_id, tinh_trang_suc_khoe, danh_hieu_id, ly_luan_chinh_tri_id, ban_id, chuc_vu_doan_id, trang_thai, don_vi_id', 'numerical', 'integerOnly' => true),
             array('ma_doan_vien, ten, ho_ten_dem, bi_danh, email, dien_thoai, thanh_phan_gia_dinh_xuat_than, bang_cap_1, bang_cap_2', 'length', 'max' => 255),
             array('ngay_sinh, mo_ta_cong_viec, ngay_vao_doan, created_at, update_at', 'safe'),
+            array('ten', 'required', 'message' => 'Tên không được bỏ trống.'),
+            array('ho_ten_dem', 'required', 'message' => 'Họ tên đệm không được bỏ trống.'),
+            array('don_vi_id', 'required', 'message' => 'Đơn vị trực thuộc không được bỏ trống.'),
+            array('email', 'email', 'message' => 'Email không dúng định dạng.'),
+            array('ngay_sinh', 'required', 'message' => 'Ngày sinh không được bỏ trống.'),
+            array('ma_doan_vien, email', 'unique'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('id, ma_doan_vien, ten, ho_ten_dem, bi_danh, gioi_tinh, ngay_sinh, que_quan, ho_khau_thuong_tru, ho_khau_tam_tru, email, dien_thoai, dan_toc_id, ton_giao_id, thanh_phan_gia_dinh_xuat_than, nghe_nghiep_id, mo_ta_cong_viec, trinh_do_van_hoa, bang_cap_1, bang_cap_2, ky_nang_ngoai_ngu_id, ky_nang_tin_hoc_id, tinh_trang_suc_khoe, ngay_vao_doan, danh_hieu_id, ly_luan_chinh_tri_id, ban_id, chuc_vu_doan_id, trang_thai, don_vi_id, created_at, update_at', 'safe', 'on' => 'search'),
