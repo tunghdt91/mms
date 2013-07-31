@@ -37,6 +37,7 @@
                     'class' => 'bootstrap.widgets.TbMenu',
                     'items' => array(
                         array('label' => 'Trang chủ','icon' => 'home', 'url' => array('/home/index')),
+                        array('label' => 'Diễn đàn','icon' => 'th', 'url' => 'forum'),
                         array('label' => 'Liên hệ', 'url' => array('#'), 'icon' => 'envelope'),
                     )
                 ),
