@@ -51,6 +51,8 @@ class User extends CActiveRecord
             array('doan_vien_id, kich_hoat, admin', 'numerical', 'integerOnly' => true),
             array('username, password, ten_hien_thi, email, ten_can_bo', 'length', 'max' => 255),
             array('created_at, update_at', 'safe'),
+            array('username', 'unique', 'message' => 'Tài khoản này đã tồn tại.'),
+            array('email', 'unique', 'message' => 'Địa chỉ email này đã tồn tại.'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('id, username, password, ten_hien_thi, email, doan_vien_id, kich_hoat, ten_can_bo, admin, created_at, update_at', 'safe', 'on' => 'search'),
@@ -116,7 +118,7 @@ class User extends CActiveRecord
             'criteria' => $criteria,
         ));
     }
-    
+
     /**
      * @author Nguyễn Đức Hiếu
      * Mã hóa mật khẩu
@@ -134,5 +136,5 @@ class User extends CActiveRecord
     {
         return $this->encryptPassword($password) === $this->password;
     }
-    
+
 }
