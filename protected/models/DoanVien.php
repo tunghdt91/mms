@@ -60,7 +60,7 @@
  * @property DoanVienDiChuyen[] $doanVienDiChuyens
  * @property User[] $users
  */
-class DoanVien extends CActiveRecord
+class DoanVien extends ActiveRecord
 {
 
     /**

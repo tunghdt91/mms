@@ -13,7 +13,7 @@
  * The followings are the available model relations:
  * @property DoanVien[] $doanViens
  */
-class DanhHieu extends CActiveRecord
+class DanhHieu extends ActiveRecord
 {
 
     /**

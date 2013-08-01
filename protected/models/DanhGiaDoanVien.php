@@ -21,7 +21,7 @@
  * @property TieuChi $tieuChi
  * @property DoanVien $canBoDanhGia
  */
-class DanhGiaDoanVien extends CActiveRecord
+class DanhGiaDoanVien extends ActiveRecord
 {
 
     /**

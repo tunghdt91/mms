@@ -15,7 +15,7 @@
  * @property Tinh $tinh
  * @property Xa[] $xas
  */
-class Huyen extends CActiveRecord
+class Huyen extends ActiveRecord
 {
 
     /**

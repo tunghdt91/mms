@@ -15,7 +15,7 @@
  * @property DonVi[] $donVis
  * @property Huyen $huyen
  */
-class Xa extends CActiveRecord
+class Xa extends ActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
