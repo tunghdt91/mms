@@ -16,7 +16,7 @@
  * @property DoanVien[] $doanViens1
  * @property DoanVien[] $doanViens2
  */
-class DiaChiDayDu extends CActiveRecord
+class DiaChiDayDu extends ActiveRecord
 {
 
     /**

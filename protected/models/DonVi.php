@@ -34,7 +34,7 @@
  * @property DonVi $donViTrucThuoc
  * @property DonVi[] $donVis
  */
-class DonVi extends CActiveRecord
+class DonVi extends ActiveRecord
 {
 
     /**

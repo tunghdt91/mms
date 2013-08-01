@@ -19,7 +19,7 @@
  * @property DonVi $donViDi
  * @property DonVi $donViDen
  */
-class DoanVienDiChuyen extends CActiveRecord
+class DoanVienDiChuyen extends ActiveRecord
 {
 
     /**

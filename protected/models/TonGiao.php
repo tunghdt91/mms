@@ -13,7 +13,7 @@
  * The followings are the available model relations:
  * @property DoanVien[] $doanViens
  */
-class TonGiao extends CActiveRecord
+class TonGiao extends ActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
