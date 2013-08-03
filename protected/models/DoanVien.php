@@ -68,6 +68,15 @@ class DoanVien extends ActiveRecord
      * @param string $className active record class name.
      * @return DoanVien the static model class
      */
+    const GENDER_SETTINGS_MALE = 1;
+    const GENDER_SETTINGS_FEMALE = 0;
+    
+    public static $GENDER_SETTINGS = array(
+        'Nữ' => self::GENDER_SETTINGS_FEMALE,
+        'Nam' => self::GENDER_SETTINGS_MALE,        
+    );
+    
+    
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
