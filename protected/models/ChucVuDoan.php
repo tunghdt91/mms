@@ -22,6 +22,28 @@
  */
 class ChucVuDoan extends ActiveRecord
 {
+    const LOAI_DON_VI_TINH_DOAN = 0;
+    const LOAI_DON_VI_HUYEN_DOAN = 1;
+    const LOAI_DON_VI_XA_DOAN = 2;
+
+    const QUAN_LY_DON_VI_DOAN_KHONG_DUOC_PHEP = 0;
+    const QUAN_LY_DON_VI_DOAN_DUOC_PHEP = 1;
+    
+    const QUAN_LY_DOAN_VIEN_KHONG_DUOC_PHEP = 0;
+    const QUAN_LY_DOAN_VIEN_DUOC_PHEP = 1;
+    
+    const QUAN_LY_CAN_BO_KHONG_DUOC_PHEP = 0;
+    const QUAN_LY_CAN_BO_DUOC_PHEP = 1;
+    
+    const DANH_GIA_XEP_LOAI_DOAN_VIEN_KHONG_DUOC_PHEP = 0;
+    const DANH_GIA_XEP_LOAI_DOAN_VIEN_DUOC_PHEP = 1;
+    
+    const DANH_GIA_XEP_LOAI_CAN_BO_KHONG_DUOC_PHEP = 0;
+    const DANH_GIA_XEP_LOAI_CAN_BO_DUOC_PHEP = 1;
+    
+    const THAY_DOI_CHUC_VU_KHONG_DUOC_PHEP = 0;
+    const THAY_DOI_CHUC_VU_DUOC_PHEP = 1;
+    
 
     /**
      * Returns the static model of the specified AR class.

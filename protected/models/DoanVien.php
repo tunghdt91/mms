@@ -63,20 +63,40 @@
 class DoanVien extends ActiveRecord
 {
 
-    /**
-     * Returns the static model of the specified AR class.
-     * @param string $className active record class name.
-     * @return DoanVien the static model class
-     */
     const GIOI_TINH_NAM = 1;
     const GIOI_TINH_NU = 0;
+    
+    const MAX_TRINH_DO_VAN_HOA = 12;
+    const MIN_TRINH_DO_VAN_HOA = 0;
+    
+    const TINH_TRANG_SUC_KHOE_TOT = 1;
+    const TINH_TRANG_SUC_KHOE_KHONG_TOT = 0;
+    
+    const TRANG_THAI_DOAN_VIEN = 0;
+    const TRANG_THAI_DU_BI = 1;
+    const TRANG_THAI_TRUONG_THANH = 2;
     
     public static $GIOI_TINH = array(
         'Nam' => self::GIOI_TINH_NAM,  
         'Nữ' => self::GIOI_TINH_NU,
     );
     
+    public static $TINH_TRANG_SUC_KHOE = array(
+        'Tốt' => self::TINH_TRANG_SUC_KHOE_TOT,
+        'Không tốt' => self::TINH_TRANG_SUC_KHOE_KHONG_TOT,
+    );
     
+    public static $TRANG_THAI = array(
+        'Đoàn viên' => self::TRANG_THAI_DOAN_VIEN,
+        'Dự bị' => self::TRANG_THAI_DU_BI,
+        'Trưởng thành' => self::TRANG_THAI_TRUONG_THANH,
+    );
+    
+    /**
+     * Returns the static model of the specified AR class.
+     * @param string $className active record class name.
+     * @return DoanVien the static model class
+     */
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
