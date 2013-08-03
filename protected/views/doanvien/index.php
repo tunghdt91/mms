@@ -109,7 +109,7 @@
         <div class="span2">Giới Tính:</div>
         <?php
             echo CHtml::dropDownList('gioi_tinh', $gioi_tinh, array('none' => '--Lựa Chọn--') 
-                + array_flip(DoanVien::$GENDER_SETTINGS), array('class' => 'form-control'));
+                + array_flip(DoanVien::$GIOI_TINH), array('class' => 'form-control'));
         ?>
     </div>
     <div class="xxwide picker">
