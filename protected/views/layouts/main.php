@@ -65,13 +65,13 @@
                 Danh Mục Quản Lý
             </div>
             <div class='well well-small'>
-                <?php echo CHtml::link('Thông Tin Cá Nhân', '#'); ?>
+                <?php echo CHtml::link('Tìm kiếm nâng cao', array('doanvien/index')); ?>
             </div>
             <div class='well well-small'>
-                <?php echo CHtml::link('Tin Học Ngoại Ngữ', '#'); ?>
+                <?php echo CHtml::link('Tạo Mới Đoàn Viên', array('doanvien/create')); ?>
             </div>
             <div class='well well-small'>
-                <?php echo CHtml::link('Quan Hệ Xã Hội', '#'); ?>
+                <?php echo CHtml::link('Đoàn Viên Bị Xoá', array('doanvien/index', 'delete' => 1)); ?>
             </div>
             <div class='well well-small'>
                 <?php echo CHtml::link('Kinh tế gia đình', '#'); ?>
