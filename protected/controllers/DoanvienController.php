@@ -8,6 +8,25 @@ class DoanvienController extends Controller
     
     public function actionCreate() {
         $doanvien = new DoanVien;
+        if(isset($_POST['DoanVien']) && isset($_POST['diachinoisinh']) && isset($_POST['diachinoisong'])) {
+            $doanvien->attributes = $_POST['DoanVien'];
+            $model_noisinh = new DiaChiDayDu();
+            $model_noisinh->dia_chi = $_POST['diachinoisinh'];
+            $model_noisinh->xa_id = $_POST['DoanVien']['ho_khau_thuong_tru'];
+            $model_noisinh->save();
+            $doanvien->ho_khau_thuong_tru = $model_noisinh->id;
+            
+            $model_noisong = new DiaChiDayDu();
+            $model_noisong->dia_chi = $_POST['diachinoisong'];
+            $model_noisong->xa_id = $_POST['DoanVien']['ho_khau_tam_tru'];
+            $model_noisong->save();
+            $doanvien->ho_khau_tam_tru = $model_noisong->id;
+            if ($doanvien->save()){
+                Yii::app()->user->setFlash('success', 'Tạo mới thành công !');
+                $this->redirect(array('doanvien/index'));
+            }
+        }
+        
         $this->render('create', array(
             'doanvien' => $doanvien,
         ));
