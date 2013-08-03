@@ -36,6 +36,25 @@
  */
 class DonVi extends ActiveRecord
 {
+    const TINH_TRANG_KICH_HOAT = 0;
+    const TINH_TRANG_CHUA_KICH_HOAT = 1;
+    const TINH_TRANG_GIAI_THE = 2;
+    
+    const LOAI_DON_VI_TINH_DOAN = 0;
+    const LOAI_DON_VI_HUYEN_DOAN = 1;
+    const LOAI_DON_VI_XA_DOAN = 2;
+    
+    public static $TINH_TRANG_DON_VI = array(
+        'Kích hoạt' => self::TINH_TRANG_KICH_HOAT,
+        'Chưa kích hoạt' => self::TINH_TRANG_CHUA_KICH_HOAT,
+        'Giải thể' => self::TINH_TRANG_GIAI_THE,
+    );
+    
+    public static $LOAI_DON_VI = array(
+        'Tỉnh Đoàn' => self::LOAI_DON_VI_TINH_DOAN,
+        'Huyện (quận) Đoàn' => self::LOAI_DON_VI_HUYEN_DOAN,
+        'Xã (phường) Đoàn' => self::LOAI_DON_VI_XA_DOAN,
+    );
 
     /**
      * Returns the static model of the specified AR class.

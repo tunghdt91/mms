@@ -23,6 +23,20 @@
  */
 class DanhGiaDoanVien extends ActiveRecord
 {
+    const MAX_DIEM = 10;
+    const MIN_DIEM = 0;
+    
+    const XEP_LOAI_XUAT_SAC = 0;
+    const XEP_LOAI_KHA = 1;
+    const XEP_LOAI_TRUNG_BINH = 2;
+    const XEP_LOAI_YEU_KEM = 3;
+    
+    public static $XEP_LOAI = array(
+        'Xuất sắc' => self::XEP_LOAI_XUAT_SAC,
+        'Khá' => self::XEP_LOAI_KHA,
+        'Trung bình' => self::XEP_LOAI_TRUNG_BINH,
+        'Yếu kém' => self::XEP_LOAI_YEU_KEM,
+    );
 
     /**
      * Returns the static model of the specified AR class.
