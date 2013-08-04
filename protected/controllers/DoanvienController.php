@@ -26,8 +26,6 @@ class DoanvienController extends Controller
         $dantocs = DanToc::model()->findAll();
         $ly_luan_chinh_tris = LyLuanChinhTri::model()->findAll() ;
         $tinhs = Tinh::model()->findAll();
-        $huyens = Huyen::model()->findAll();
-        $xas = Xa::model()->findAll();
         $don_vis = DonVi::model()->findAll();
         // Search condition
         $criteria = new CDbCriteria();
@@ -97,8 +95,6 @@ class DoanvienController extends Controller
             'dantocs' => $dantocs,
             'ly_luan_chinh_tris' => $ly_luan_chinh_tris,
             'tinhs' => $tinhs,
-            'huyens' => $huyens,
-            'xas' => $xas,
             'don_vis' => $don_vis,
             'msdv' => $msdv,
             'ho_ten_dem' => $ho_ten_dem,
@@ -120,7 +116,51 @@ class DoanvienController extends Controller
             'phone' => $phone,
             'don_vi' => $don_vi,
         ));
-    } 
+    }
+    
+    public function actionDataHuyen()
+    {
+        if (!Yii::app()->request->isAjaxRequest) {
+            $this->render('/site/error', array(
+                'code' => 403,
+                'message' => 'Forbidden',
+            ));
+            Yii::app()->end();
+        }
+        
+        if (isset($_POST['id_tinh'])) {
+            $results = array();
+            $criteria = new CDbCriteria();
+            $criteria->condition = "tinh_id = {$_POST['id_tinh']}";
+            $huyens = Huyen::model()->findAll($criteria);
+            foreach ($huyens as $huyen) {
+                $results[$huyen->id] = $huyen->ten;
+            }
+            echo json_encode($results);
+        }
+    }
+    
+    public function actionDataXa()
+    {
+        if (!Yii::app()->request->isAjaxRequest) {
+            $this->render('/site/error', array(
+                'code' => 403,
+                'message' => 'Forbidden',
+            ));
+            Yii::app()->end();
+        }
+        
+        if (isset($_POST['id_huyen'])) {
+            $results = array();
+            $criteria = new CDbCriteria();
+            $criteria->condition = "huyen_id = {$_POST['id_huyen']}";
+            $xas = Xa::model()->findAll($criteria);
+            foreach ($xas as $xa) {
+                $results[$xa->id] = $xa->ten;
+            }
+            echo json_encode($results);
+        }
+    }
 
 }
 ?>
