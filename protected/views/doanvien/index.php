@@ -130,11 +130,15 @@
         <div class="span2">Nơi Sinh:</div>
         <?php
             $listData_tinh = CHtml::listData($tinhs, 'id', 'ten');
-            echo CHtml::dropDownList('tinh', $tinh, array('none' => ' Tỉnh ') + $listData_tinh);
-            $listData_huyen = CHtml::listData($huyens, 'id', 'ten');
-            echo CHtml::dropDownList('huyen', $huyen, array('none' => ' Huyện ') + $listData_huyen);
-            $listData_xa = CHtml::listData($xas, 'id', 'ten');
-            echo CHtml::dropDownList('xa', $xa, array('none' => ' Xã ') + $listData_xa);
+            echo CHtml::dropDownList('tinh', $tinh, array('none' => ' Tỉnh ') + $listData_tinh, array('id' => 'chon_tinh'));
+            echo CHtml::dropDownList('huyen', $huyen, array('none' => ' Huyện '), array(
+                'id' => 'chon_huyen',
+                'disabled' => true,
+            ));
+            echo CHtml::dropDownList('xa', $xa, array('none' => ' Xã '), array(
+                'id' => 'chon_xa',
+                'disabled' => true,
+            ));
         ?>
     </div>
     <div class="xxwide picker">
