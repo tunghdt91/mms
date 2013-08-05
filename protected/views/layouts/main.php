@@ -71,6 +71,7 @@
                         <li><?php echo CHtml::link('Ban C', array('')); ?></li>
                     </ul>
                 </li> 
+                <li class="divider"></li>
                 <li><label class="tree-toggle nav-header">Quản Lý Đoàn Viên</label>
                     <ul class="nav nav-list tree">
                         <li><?php echo CHtml::link('Tìm kiếm nâng cao', array('doanvien/index')); ?></li>
@@ -120,6 +121,9 @@
 </body>
 </html>
     <script>
+        $(function(){
+            $('.tree-toggle').parent().children('ul.tree').toggle();
+        })
         $('.tree-toggle').click(function () {
             $(this).parent().children('ul.tree').toggle(500);
         });
