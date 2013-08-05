@@ -59,39 +59,52 @@
 	<?php endif?>
 
     <?php echo CHtml::image(Yii::app()->baseUrl.'/images/banner.png', null, array("width"=>1372)); ?>
-    <div id="all-content">
-        <div id="slide-bar">
-            <div class="sd-menu">
-                Danh Mục Quản Lý
-            </div>
-            <div class='well well-small'>
-                <?php echo CHtml::link('Tìm kiếm nâng cao', array('doanvien/index')); ?>
-            </div>
-            <div class='well well-small'>
-                <?php echo CHtml::link('Tạo Mới Đoàn Viên', array('doanvien/create')); ?>
-            </div>
-            <div class='well well-small'>
-                <?php echo CHtml::link('Đoàn Viên Bị Xoá', array('doanvien/index', 'delete' => 1)); ?>
-            </div>
-            <div class='well well-small'>
-                <?php echo CHtml::link('Kinh tế gia đình', '#'); ?>
-            </div>    
-            <div class='well well-small'>
-                <?php echo CHtml::link('Đánh giá đoàn viên', '#'); ?>
-            </div>
-            <div class='well well-small'>
-                <?php echo CHtml::link('Lý lịch làm việc', '#'); ?>
-            </div>
-            <div class='well well-small'>
-                <?php echo CHtml::link('Khen thưởng-Kỷ luật', '#'); ?>
-            </div>
-            <div class='well well-small'>
-                <?php echo CHtml::link('Quá trình học tập', '#'); ?>
-            </div>
-            <div class='well well-small'>
-                <?php echo CHtml::link('Thông tin khác', '#'); ?>
-            </div>
-        </div>    
+
+                
+    <div id="all-content">       
+      <div id="slide-bar">
+            <ul class="nav nav-list">
+                <li><label class="tree-toggle nav-header">Tổ Chức Bộ Máy</label>
+                    <ul class="nav nav-list tree">
+                        <li><?php echo CHtml::link('Ban A', array('')); ?></li>
+                        <li><?php echo CHtml::link('Ban B', array('')); ?></li>
+                        <li><?php echo CHtml::link('Ban C', array('')); ?></li>
+                    </ul>
+                </li> 
+                <li><label class="tree-toggle nav-header">Quản Lý Đoàn Viên</label>
+                    <ul class="nav nav-list tree">
+                        <li><?php echo CHtml::link('Tìm kiếm nâng cao', array('doanvien/index')); ?></li>
+                        <li><?php echo CHtml::link('Tạo Mới Đoàn Viên', array('doanvien/create')); ?></li>
+                        <li><?php echo CHtml::link('Đoàn Viên Bị Xoá', array('doanvien/index', 'delete' => 1)); ?></li>
+                        <li><label class="tree-toggle nav-header">Di Chuyển Đoàn viên</label>
+                            <ul class="nav nav-list tree">
+                                <li><span style="font-size: 13px;"><?php echo CHtml::link('Chờ Chuyển Đến', array('')); ?></span></li>
+                                <li><span style="font-size: 13px;"><?php echo CHtml::link('Chờ Chuyển Đi', array('')); ?></span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="divider"></li>
+                <li><label class="tree-toggle nav-header">Quản Lý Cơ Sở Đoàn</label>
+                    <ul class="nav nav-list tree">
+                        <li><a href="#">Overview</a></li>
+                        <li><a href="#">CSS</a></li>
+                        <li><label class="tree-toggle nav-header">Media Queries</label>
+                            <ul class="nav nav-list tree">
+                                <li><a href="#">Text</a></li>
+                                <li><a href="#">Images</a></li>
+                                <li><label class="tree-toggle nav-header">Mobile Devices</label>
+                                    <ul class="nav nav-list tree">
+                                        <li><a href="#">iPhone</a></li>
+                                        <li><a href="#">Samsung</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>  
+                    </ul>
+                </li>
+            </ul>
+      </div>
         <?php echo $content; ?>
     </div>
 	<div class="clear"></div>
@@ -106,3 +119,8 @@
 
 </body>
 </html>
+    <script>
+        $('.tree-toggle').click(function () {
+            $(this).parent().children('ul.tree').toggle(500);
+        });
+    </script> 
