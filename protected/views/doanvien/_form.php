@@ -312,8 +312,9 @@
                 <div class="row">
                     <div class="span4">Ngày chuyển đến</div>
                     <?php
-                    echo $form->textField($doanvien, 'ngay_vao_doan', array(
+                    echo CHtml::textField('', '', array(
                         'class' => 'text input span8',
+                        'disabled' => 'disabled',
                     ));
                     ?>
                 </div>
