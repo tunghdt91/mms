@@ -131,13 +131,13 @@
         <div class="span2">Nơi Sinh:</div>
         <?php
             $listData_tinh = CHtml::listData($tinhs, 'id', 'ten');
-            echo CHtml::dropDownList('tinh', $tinh, array('none' => ' Tỉnh ') + $listData_tinh, array('id' => 'chon_tinh'));
+            echo CHtml::dropDownList('tinh', $tinh, array('none' => ' Tỉnh ') + $listData_tinh, array('id' => 'chon_tinh_1'));
             echo CHtml::dropDownList('huyen', $huyen, array('none' => ' Huyện '), array(
-                'id' => 'chon_huyen',
+                'id' => 'chon_huyen_1',
                 'disabled' => true,
             ));
             echo CHtml::dropDownList('xa', $xa, array('none' => ' Xã '), array(
-                'id' => 'chon_xa',
+                'id' => 'chon_xa_1',
                 'disabled' => true,
             ));
         ?>

@@ -1,4 +1,13 @@
-<script src='<?php echo Yii::app()->baseUrl; ?>/js/doan_vien.js'></script> 
+<script src='<?php echo Yii::app()->baseUrl; ?>/js/doan_vien.js'></script>
+<script src='<?php echo Yii::app()->baseUrl; ?>/js/bootstrap-datetimepicker.min.js'></script>
+<?php Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/bootstrap-datetimepicker.min.css'); ?>
+<script type="text/javascript">
+  $(function() {
+    $('.datetimepicker4').datetimepicker({
+      pickTime: false
+    });
+  });
+</script>
 <div class="form">
 
     <?php
@@ -16,7 +25,7 @@
         <div class="dv_left">
             <div class="info-user">
                 <div class="row">
-                    <div class="span3">Mã ĐV:</div>
+                    <div class="span3">Mã ĐV:<span class="required">*</span></div>
                     <?php
                     echo $form->textField($doanvien, 'ma_doan_vien', array(
                         'class' => 'text input span8',
@@ -25,7 +34,7 @@
                     ?>
                 </div>
                 <div class="row">
-                    <div class="span3">Họ và Tên:</div> 
+                    <div class="span3">Họ và Tên:<span class="required">*</span></div> 
                     <?php
                     echo $form->textField($doanvien, 'ho_ten_dem', array(
                         'class' => 'text input span5',
@@ -41,13 +50,14 @@
                 </div>
 
                 <div class="row">
-                    <div class="span3">Ngày Sinh:</div>
-                    <?php
-                    echo $form->textField($doanvien, 'ngay_sinh', array(
-                        'class' => 'text input span9',
-                        'placeholder' => 'YYYY-MM-DD',
-                    ));
-                    ?>
+                    <div class="span3">Ngày Sinh:<span class="required">*</span></div>
+                    <div class="datetimepicker4" class="input-append">
+                        <input data-format="yyyy-MM-dd" type="text" name="DoanVien[ngay_sinh]" placeholder = 'YYYY-MM-dd'></input>
+                        <span class="add-on">
+                            <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                            </i>
+                        </span>
+                    </div>
                 </div>
 
                 <div class="row">
@@ -61,7 +71,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="span3"> Giới tính: </div>
+                    <div class="span3"> Giới tính: <span class="required">*</span></div>
                     <?php
                     echo CHtml::dropDownList('DoanVien[gioi_tinh]', '', array_flip(DoanVien::$GIOI_TINH)
                     );
@@ -69,7 +79,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="span3">Email:</div>
+                    <div class="span3">Email:<span class="required">*</span></div>
                     <?php
                     echo $form->textField($doanvien, 'email', array(
                         'class' => 'text input span8',
@@ -96,7 +106,7 @@
                 </div>
                 <div class="row">
                     <div class="span3">
-                        Nơi Sinh
+                        Nơi Sinh<span class="required">*</span>
                     </div>
                     <div class='span9'>
                         <?php
@@ -115,7 +125,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="span3">Địa Chỉ Nhà</div>
+                    <div class="span3">Địa Chỉ Nhà<span class="required">*</span></div>
                     <div class="span9">
                         <?php
                         echo Chtml::textField('diachinoisinh', '', array(
@@ -134,7 +144,7 @@
                 </div>
                 <div class="row">
                     <div class="span3">
-                        Nơi Tạm trú hiện nay 
+                        Nơi Tạm trú hiện nay <span class="required">*</span>
                     </div>
                     <div class='span9'>
                         <?php
@@ -153,7 +163,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="span3">Địa Chỉ Nhà</div>
+                    <div class="span3">Địa Chỉ Nhà<span class="required">*</span></div>
                     <div class="span9">
                         <?php
                         echo Chtml::textField('diachinoisong', '', array(
@@ -292,12 +302,14 @@
                 </div>
 
                 <div class="row">
-                    <div class="span4">Ngày vào đoàn</div>
-                    <?php
-                    echo $form->textField($doanvien, 'ngay_vao_doan', array(
-                        'class' => 'text input span8',
-                    ));
-                    ?>
+                    <div class="span4">Ngày vào đoàn<span class="required">*</span></div>
+                    <div class="datetimepicker4" class="input-append">
+                        <input data-format="yyyy-MM-dd" type="text" name="DoanVien[ngay_vao_doan]" placeholder = 'YYYY-MM-dd'></input>
+                        <span class="add-on">
+                            <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                            </i>
+                        </span>
+                    </div>
                 </div>
 
                 <div class="row">
@@ -312,8 +324,9 @@
                 <div class="row">
                     <div class="span4">Ngày chuyển đến</div>
                     <?php
-                    echo $form->textField($doanvien, 'ngay_vao_doan', array(
+                    echo CHtml::textField('', '', array(
                         'class' => 'text input span8',
+                        'disabled' => 'disabled',
                     ));
                     ?>
                 </div>

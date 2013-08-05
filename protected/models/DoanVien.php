@@ -143,6 +143,8 @@ class DoanVien extends ActiveRecord
             array('don_vi_id', 'required', 'message' => 'Đơn vị trực thuộc không được bỏ trống.'),
             array('email', 'email', 'message' => 'Email không dúng định dạng.'),
             array('ngay_sinh', 'required', 'message' => 'Ngày sinh không được bỏ trống.'),
+            array('ho_khau_thuong_tru', 'required', 'message' => 'Cần phải nhập hộ khẩu thường trú .'),
+            array('ho_khau_tam_tru', 'required', 'message' => 'Cần phải nhập hộ khẩu tạm trú.'),
             array('ma_doan_vien, email', 'unique'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
