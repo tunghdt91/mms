@@ -39,6 +39,7 @@ body
 .clear {
 clear: both;
 }
+
 .navbar-inner {
     width: 80%;
     margin:0 auto;
@@ -48,10 +49,11 @@ clear: both;
     margin-top: -20px;
 }
 #slide-bar {
-    margin-top: 10px;
+    margin-top: 50px;
     float: left;
     width: 20%;
 }
+
 #content {
     float: right;
     width: 79%;
