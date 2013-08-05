@@ -97,6 +97,23 @@ class DoanVien extends ActiveRecord
      * @param string $className active record class name.
      * @return DoanVien the static model class
      */
+
+    public static $TRINH_DO_VAN_HOA = array(
+        '1' => 1,
+        '2' => 2,
+        '3' => 3,
+        '4' => 4,
+        '5' => 5,
+        '6' => 6,
+        '7' => 7,
+        '8' => 8,
+        '9' => 9,
+        '10' => 10,
+        '11' => 11,
+        '12' => 12,
+    );
+    
+ 
     public static function model($className = __CLASS__)
     {
         return parent::model($className);

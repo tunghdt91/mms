@@ -2,6 +2,7 @@
 <div style="text-align: center;">
     <h2><?php echo $title ?></h2>
 </div>
+<?php $this->widget('bootstrap.widgets.TbAlert'); ?>
 <div class='span2'>
 <?php
     echo CHtml::button('Tìm  Kiếm', array('id' => 'show_search', 'class' => 'btn btn-primary'));

@@ -46,3 +46,7 @@
 .text {
     margin-top: -5px;
 }
+
+.info-user {
+    border: 1px solid #DDD;
+}
