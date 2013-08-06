@@ -5,6 +5,13 @@ class DoanvienController extends Controller
     public function actions() {
         return array();
     }
+        public function loadModel($id) //Find Poll where id = $id
+    {
+        $model = DoanVien::model()->findByPk($id);
+        if ($model === null)
+            throw new CHttpException(404, 'The requested page does not exist.');
+        return $model;
+    }
     
     public function actionCreate() {
         $doanvien = new DoanVien;
@@ -12,13 +19,17 @@ class DoanvienController extends Controller
             $doanvien->attributes = $_POST['DoanVien'];
             $model_noisinh = new DiaChiDayDu();
             $model_noisinh->dia_chi = $_POST['diachinoisinh'];
-            $model_noisinh->xa_id = $_POST['DoanVien']['ho_khau_thuong_tru'];
+            if(isset($_POST['DoanVien']['ho_khau_thuong_tru'])) {
+                $model_noisinh->xa_id = $_POST['DoanVien']['ho_khau_thuong_tru'];
+            }
             $model_noisinh->save();
             $doanvien->ho_khau_thuong_tru = $model_noisinh->id;
             
             $model_noisong = new DiaChiDayDu();
             $model_noisong->dia_chi = $_POST['diachinoisong'];
-            $model_noisong->xa_id = $_POST['DoanVien']['ho_khau_tam_tru'];
+            if(isset($_POST['DoanVien']['ho_khau_tam_tru'])) {
+                $model_noisong->xa_id = $_POST['DoanVien']['ho_khau_tam_tru'];
+            }
             $model_noisong->save();
             $doanvien->ho_khau_tam_tru = $model_noisong->id;
             if ($doanvien->save()){
@@ -28,6 +39,30 @@ class DoanvienController extends Controller
         }
         
         $this->render('create', array(
+            'doanvien' => $doanvien,
+        )); 
+    }
+    
+    public function actionUpdate($id) {
+        $doanvien = $this->loadModel($id);
+        if (isset($_POST['DoanVien'])) {
+            $doanvien->attributes = $_POST['DoanVien'];
+            if($doanvien->save()) {
+                Yii::app()->user->setFlash('success', 'Thông tin đoàn viên đã được thay đổi !');
+                $this->redirect(array('view', 'id' => $doanvien->id)); 
+            } else {
+                 Yii::app()->user->setFlash('error', 'Lỗi thay đổi !');
+                 $this->redirect(array('view', 'id' => $doanvien->id));  
+            }
+        }
+        $this->render('update', array(
+            'doanvien' => $doanvien
+        ));
+    }
+    
+    public function actionView($id) {
+        $doanvien = $this->loadModel($id);
+        $this->render('view', array(
             'doanvien' => $doanvien,
         ));
     }
