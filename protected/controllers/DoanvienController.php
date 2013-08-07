@@ -101,22 +101,30 @@ class DoanvienController extends Controller
             $criteria->addCondition("bi_danh like '%{$bi_danh}%'");
         }
         if ($ngay_sinh_tu != null) {
-            $criteria->addCondition("ngay_sinh>'{$ngay_sinh_tu}'");
+            $criteria->addCondition("ngay_sinh>='{$ngay_sinh_tu}'");
         }
         if ($ngay_sinh_den != null) {
-           $criteria->addCondition("ngay_sinh<'{$ngay_sinh_den}'");  
+           $criteria->addCondition("ngay_sinh<='{$ngay_sinh_den}'");  
         }
         if ($do_tuoi_tu != null) {
-            
+            $year = date('Y', time());
+            settype($year, 'integer');
+            $year -= $do_tuoi_tu;
+            $day_start = date("$year-m-d", time());
+            $criteria->addCondition("ngay_sinh<='{$day_start}'"); 
         }
         if ($do_tuoi_den != null) {
-            
+            $year = date('Y', time());
+            settype($year, 'integer');
+            $year -= $do_tuoi_den;
+            $day_end = date("$year-m-d", time());
+            $criteria->addCondition("ngay_sinh>='{$day_end}'"); 
         }
         if ($ngay_vao_doan_tu != null) {
-            
+            $criteria->addCondition("ngay_vao_doan>='{$ngay_vao_doan_tu}'"); 
         }
         if ($ngay_vao_doan_den != null) {
-            
+            $criteria->addCondition("ngay_vao_doan<='{$ngay_vao_doan_tu}'");
         }
         if ($gioi_tinh != null && $gioi_tinh != 'none') {
             $criteria->addCondition('gioi_tinh='.$gioi_tinh);
