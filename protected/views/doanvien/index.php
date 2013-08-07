@@ -64,26 +64,23 @@
         ));
         ?>
     </div>
-        <div class="row">
-            <div class="span2">Ngày sinh</div>
-            <div class="datetimepicker4 span4" class="input-append">
-                <input class="txt-input" data-format="yyyy-MM-dd" type="text" name="ngay_sinh_tu" placeholder = 'YYYY-MM-dd'></input>
-                <span class="add-on">
-                    <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-                    </i>
-                </span>
-            </div>
-            <div class="span1">đến</div>
-            <div class="datetimepicker4 span4" class="input-append">
-                <input class="txt-input" data-format="yyyy-MM-dd" type="text" name="ngay_sinh_den" placeholder = 'YYYY-MM-dd'></input>
-                <span class="add-on">
-                    <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-                    </i>
-                </span>
-            </div>
-
+    <div class="row">
+        <div class="span2">Ngày sinh</div>
+        <div class="datetimepicker4 span4" class="input-append">
+            <input class="txt-input" data-format="yyyy-MM-dd" type="text" name="ngay_sinh_tu" placeholder = 'YYYY-MM-dd'></input>
+            <span class="add-on">
+                <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                </i>
+            </span>
         </div>
-
+        <div class="datetimepicker4 span4" class="input-append">
+            <input class="txt-input" data-format="yyyy-MM-dd" type="text" name="ngay_sinh_den" placeholder = 'YYYY-MM-dd'></input>
+            <span class="add-on">
+                <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                </i>
+            </span>
+        </div>
+    </div>
     <div class="xxwide picker">
         <div class="row">
             <div class="span2">Độ Tuổi:</div> 
@@ -102,24 +99,26 @@
             ?>
         </div>
     </div>
-    <div class="xxwide picker">
-        <div class="row">
-            <div class="span2">Ngày Vào Đoàn:</div> 
-            <?php
-            echo CHtml::textField('ngay_vao_doan_tu', $ngay_vao_doan_tu, array(
-                'id' => 'ngay_vao_doan_tu',
-                'class' => 'text input'
-            ));
-            echo ' - ';
-            ?> 
-            <?php
-            echo CHtml::textField('ngay_vao_doan_den', $ngay_vao_doan_den, array(
-                'id' => 'ngay_vao_doan_den',
-                'class' => 'text input ',
-            ));
-            ?>
+    
+    <div class="row">
+        <div class="span2">Ngày Vào Đoàn</div>
+        <div class="datetimepicker4 span4" class="input-append">
+            <input class="txt-input" data-format="yyyy-MM-dd" type="text" name="ngay_vao_doan_tu" placeholder = 'YYYY-MM-dd'></input>
+            <span class="add-on">
+                <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                </i>
+            </span>
+        </div>
+        <div class="datetimepicker4 span4" class="input-append">
+            <input class="txt-input" data-format="yyyy-MM-dd" type="text" name="ngay_vao_doan_den" placeholder = 'YYYY-MM-dd'></input>
+            <span class="add-on">
+                <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                </i>
+            </span>
         </div>
     </div>
+    
+    
     <div class="xxwide picker">
         <div class="span2">Giới Tính:</div>
         <?php
@@ -187,12 +186,14 @@
 </div>
 <?php echo CHtml::endForm(); ?>
 <hr style="color: #808080">
-<table width ="90%" border ='2' cellspacing='1'>
+<table width ="100%" border ='2' cellspacing='1'>
     <th width ='10%' >Mã Đoàn Viên</th>
     <th width ='20%' >Họ Tên</th>
     <th width ='10%' >Ngày Sinh</th>
     <th width ='10%' >Giới Tính</th>
     <th width ='20%' >Email</th>
+    <th width ='15%' >Ngày Vào Đoàn</th>
+    <th width ='15%' >Đơn Vị</th>
     <?php
     foreach ($doan_viens as $doan_vien) {
         echo "<tr align ='center'>";
@@ -206,6 +207,8 @@
         echo $doan_vien->gioi_tinh == 1 ? "Nam" : "Nữ";
         echo "</td>";
         echo "<td>{$doan_vien->email}</td>";
+        echo "<td>{$doan_vien->ngay_vao_doan}</td>";
+        echo "<td>{$doan_vien->don_vi->ten}</td>";
         echo '</tr>';
     }
     ?>
