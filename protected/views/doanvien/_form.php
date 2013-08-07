@@ -2,11 +2,11 @@
 <script src='<?php echo Yii::app()->baseUrl; ?>/js/bootstrap-datetimepicker.min.js'></script>
 <?php Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/bootstrap-datetimepicker.min.css'); ?>
 <script type="text/javascript">
-  $(function() {
-    $('.datetimepicker4').datetimepicker({
-      pickTime: false
+    $(function() {
+        $('.datetimepicker4').datetimepicker({
+            pickTime: false
+        });
     });
-  });
 </script>
 <div class="form">
 
@@ -174,32 +174,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="clear2"></div>
-            <div class='info-user'>
-                <div class="row">
-                    <div class="span10 req">Thông Tin khác.</div>
-                </div>
-                <div class="row">
-                    <div class="span3">Dân tộc:</div>
-                    <?php
-                    $dantocs = DanToc::model()->findAll();
-                    $listData_dantoc = CHtml::listData($dantocs, 'id', 'ten');
-                    echo CHtml::activeDropDownList(
-                            $doanvien, 'dan_toc_id', $listData_dantoc);
-                    ?>
-                </div>
-
-                <div class="row">
-                    <div class="span3">Tôn giáo:</div>
-                    <?php
-                    $tongiaos = TonGiao::model()->findAll();
-                    $listData_tongiao = CHtml::listData($tongiaos, 'id', 'ten');
-                    echo CHtml::activeDropDownList(
-                            $doanvien, 'ton_giao_id', $listData_tongiao);
-                    ?>
-                </div>
-            </div>
         </div>
         <!--end of left info-->
         <div class="dv_right">
@@ -322,20 +296,6 @@
                 </div>
 
                 <div class="row">
-                    <div class="span4">Ngày chuyển đến</div>
-                    <?php
-                    echo CHtml::textField('', '', array(
-                        'class' => 'text input span8',
-                        'disabled' => 'disabled',
-                    ));
-                    ?>
-                </div>
-
-                <div class="row">
-                    <div class="span4">Chi đoàn trước</div>
-                </div>
-
-                <div class="row">
                     <div class="span4">Đơn vị trực thuộc</div>
                     <?php
                     $donvis = DonVi::model()->findAll();
@@ -343,6 +303,32 @@
                     echo CHtml::activeDropDownList(
                             $doanvien, 'don_vi_id', $listData_donvi
                     );
+                    ?>
+                </div>
+            </div>
+
+            <div class="clear2"></div>
+            <div class='info-user'>
+                <div class="row">
+                    <div class="span10 req">Thông Tin khác.</div>
+                </div>
+                <div class="row">
+                    <div class="span3">Dân tộc:</div>
+                    <?php
+                    $dantocs = DanToc::model()->findAll();
+                    $listData_dantoc = CHtml::listData($dantocs, 'id', 'ten');
+                    echo CHtml::activeDropDownList(
+                            $doanvien, 'dan_toc_id', $listData_dantoc);
+                    ?>
+                </div>
+
+                <div class="row">
+                    <div class="span3">Tôn giáo:</div>
+                    <?php
+                    $tongiaos = TonGiao::model()->findAll();
+                    $listData_tongiao = CHtml::listData($tongiaos, 'id', 'ten');
+                    echo CHtml::activeDropDownList(
+                            $doanvien, 'ton_giao_id', $listData_tongiao);
                     ?>
                 </div>
             </div>
