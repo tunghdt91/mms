@@ -5,7 +5,7 @@ class DoanvienController extends Controller
     public function actions() {
         return array();
     }
-        public function loadModel($id) //Find Poll where id = $id
+    public function loadModel($id) //Find Poll where id = $id
     {
         $model = DoanVien::model()->findByPk($id);
         if ($model === null)
@@ -13,6 +13,11 @@ class DoanvienController extends Controller
         return $model;
     }
     
+    public function actionDelete($id) {
+        $doanvien = $this->loadModel($id);
+        $doanvien->delete();
+        $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+    }
     public function actionCreate() {
         $doanvien = new DoanVien;
         if(isset($_POST['DoanVien']) && isset($_POST['diachinoisinh']) && isset($_POST['diachinoisong'])) {
@@ -96,10 +101,10 @@ class DoanvienController extends Controller
             $criteria->addCondition("bi_danh like '%{$bi_danh}%'");
         }
         if ($ngay_sinh_tu != null) {
-            
+            $criteria->addCondition("ngay_sinh>'{$ngay_sinh_tu}'");
         }
         if ($ngay_sinh_den != null) {
-            
+           $criteria->addCondition("ngay_sinh<'{$ngay_sinh_den}'");  
         }
         if ($do_tuoi_tu != null) {
             
