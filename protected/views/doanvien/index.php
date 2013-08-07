@@ -186,7 +186,10 @@
 foreach ($doan_viens as $doan_vien) {
     echo "<tr align ='center'>";
     echo "<td><span style='color: red;'>{$doan_vien->ma_doan_vien}</span></td>";
-    echo "<td><b>{$doan_vien->ho_ten_dem} {$doan_vien->ten}</b></td>";
+    echo "<td><b>";
+    echo CHtml::link("{$doan_vien->ho_ten_dem} {$doan_vien->ten}",array('doanvien/view',
+                                         'id'=> $doan_vien->id));
+    echo "</b></td>";
     echo "<td>{$doan_vien->ngay_sinh}</td>";
     echo "<td>";
     echo $doan_vien->gioi_tinh == 1 ? "Nam" : "Nữ";
