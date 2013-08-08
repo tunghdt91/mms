@@ -38,6 +38,7 @@
                             'items' => array(
                                 array('label' => 'Trang chủ', 'icon' => 'home', 'url' => array('/home/index')),
                                 array('label' => 'Liên hệ', 'url' => array('#'), 'icon' => 'envelope'),
+                                array('label' => 'Diễn đàn', 'url' => 'forum', 'icon' => 'th'),
                             )
                         ),
                         array(
