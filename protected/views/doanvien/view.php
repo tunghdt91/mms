@@ -36,11 +36,29 @@
         )
     );
     echo '&nbsp;&nbsp;';
-    echo CHtml::button('Xoá đoàn viên này', array(
-        'class' => 'btn btn-danger',
-        'submit' => array(
-            'doanvien/delete',
-            'id' => $doanvien->id)
-        )
-    );
+    if ($doanvien->deleted_at == NULL) {
+        echo CHtml::button('Khai Trừ Đoàn Viên', array(
+            'class' => 'btn btn-danger',
+            'submit' => array(
+                'doanvien/deletemoment',
+                'id' => $doanvien->id)
+            )
+        );
+    } else {
+        echo CHtml::button('Khôi Phục Dữ Liệu', array(
+            'class' => 'btn btn-primary',
+            'submit' => array(
+                'doanvien/restore',
+                'id' => $doanvien->id)
+            )
+        );
+        echo '&nbsp;&nbsp;';
+        echo CHtml::button('Xoá Vĩnh Viễn', array(
+            'class' => 'btn btn-danger',
+            'submit' => array(
+                'doanvien/delete',
+                'id' => $doanvien->id)
+            )
+        );
+    }
 ?>

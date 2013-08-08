@@ -18,6 +18,25 @@ class DoanvienController extends Controller
         $doanvien->delete();
         $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
     }
+    
+    /*@author Nguyen Van Cuong
+     */
+    public function actionDeleteMoment($id)
+    {
+        $doanvien = $this->loadModel($id);
+        $doanvien->deleted_at = date('Y-m-d H:i:s', time());
+        $doanvien->save();
+        $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+    }
+    /*@author Nguyen Van Cuong
+     */
+    public function actionRestore($id)
+    {
+        $doanvien = $this->loadModel($id);
+        $doanvien->deleted_at = NULL;
+        $doanvien->save();
+        $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+    }
     public function actionCreate() {
         $doanvien = new DoanVien;
         if(isset($_POST['DoanVien']) && isset($_POST['diachinoisinh']) && isset($_POST['diachinoisong'])) {
