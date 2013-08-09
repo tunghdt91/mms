@@ -24,7 +24,10 @@ body
 
 #mainmenu
 {
+    width: 80%;
+    margin: 0 auto;
     height: 40px; 
+    display: block;
 }
 
 #footer
@@ -45,11 +48,12 @@ clear: both;
     margin:0 auto;
     background-image: linear-gradient(to bottom, white, white);
 }
+
 .all-content {
     margin-top: -20px;
 }
 #slide-bar {
-    margin-top: 50px;
+    margin-top: 20px;
     float: left;
     width: 20%;
 }
@@ -58,4 +62,63 @@ clear: both;
     float: right;
     width: 79%;
     margin :0 auto;
+}
+
+li {
+    list-style-type: none;
+}
+
+.clear3 {
+    height: 0px;
+}
+
+.clear2 {
+    height: 20px;
+}
+
+#home-page {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+#top-home {
+    width: 100%;
+    float: top;
+    height: auto;
+}
+#top-left {
+    width: 60%;
+    float: left;
+}
+
+#tl1 {
+    float: left;
+    width: 50%;
+}
+
+#tl2 {
+    float: right;
+    width: 50%;
+}
+
+#top-right {
+    width : 38%;
+    float: right;
+}
+
+#bottom-home {
+    width: 100%;
+    float: bottom;
+    height: auto;
+}
+
+#bottom-left {
+    float: left;
+    width: 40%;
+}
+
+#bottom-right {
+    float: right;
+    width: 58%;
 }
