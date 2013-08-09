@@ -50,3 +50,23 @@
 .info-user {
     border: 1px solid #DDD;
 }
+
+.doanvien_view {
+    width: 90%;
+    margin: 0px auto;
+}
+
+.r1 {
+    height: 100px;
+    float: top;
+}
+
+.dv_avatar {
+    float:left;
+    width: 150px;
+}
+
+.r1r {
+    float: right;
+    width: 500px;
+}
