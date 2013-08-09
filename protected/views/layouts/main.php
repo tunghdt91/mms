@@ -102,7 +102,7 @@
             <div class="clear"></div>
 
             <div id="footer">
-                Copyright &copy; <?php echo date('Y'); ?> by <a href="#"></a>.<br/>
+                Copyright &copy; <?php echo date('Y'); ?> by <a href="#">CTTQ Group.</a><br/>
                 All Rights Reserved.<br/>
                 <?php echo Yii::powered(); ?>
             </div><!-- footer -->
