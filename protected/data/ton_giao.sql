@@ -1,0 +1,13 @@
+INSERT INTO ton_giao (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 1, 'Phật Giáo', NULL);
+INSERT INTO ton_giao (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 2, 'Công Giáo', NULL);
+INSERT INTO ton_giao (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 3, 'Hòa Hảo', NULL);
+INSERT INTO ton_giao (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 4, 'Hồi Giáo', NULL);
+INSERT INTO ton_giao (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 5, 'Cao Đài', NULL);
+INSERT INTO ton_giao (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 6, 'Minh Sư Đạo', NULL);
+INSERT INTO ton_giao (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 7, 'Minh Lý Đạo', NULL);
+INSERT INTO ton_giao (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 8, 'Tin Lành', NULL);
+INSERT INTO ton_giao (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 9, 'Tịnh độ cư sĩ Phật hội Việt Nam', NULL);
+INSERT INTO ton_giao (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 10, 'Đạo Tứ ấn hiếu nghĩa', NULL);
+INSERT INTO ton_giao (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 11, 'Bửu sơn Kỳ hương', NULL);
+INSERT INTO ton_giao (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 12, "Bahá'í", NULL);
+INSERT INTO ton_giao (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 13, 'Bà La Môn', NULL);

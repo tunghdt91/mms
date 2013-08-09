@@ -10,7 +10,7 @@
  * @property string $ten_hien_thi
  * @property string $email
  * @property integer $doan_vien_id
- * @property integer $kich_hoat
+ * @property integer $ma_bi_mat
  * @property string $ten_can_bo
  * @property integer $admin
  * @property string $created_at
@@ -48,14 +48,14 @@ class User extends ActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('doan_vien_id, kich_hoat, admin', 'numerical', 'integerOnly' => true),
-            array('username, password, ten_hien_thi, email, ten_can_bo', 'length', 'max' => 255),
+            array('doan_vien_id, admin', 'numerical', 'integerOnly' => true),
+            array('username, password, ten_hien_thi, email, ten_can_bo, ma_bi_mat', 'length', 'max' => 255),
             array('created_at, update_at', 'safe'),
             array('username', 'unique', 'message' => 'Tài khoản này đã tồn tại.'),
             array('email', 'unique', 'message' => 'Địa chỉ email này đã tồn tại.'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('id, username, password, ten_hien_thi, email, doan_vien_id, kich_hoat, ten_can_bo, admin, created_at, update_at', 'safe', 'on' => 'search'),
+            array('id, username, password, ten_hien_thi, email, doan_vien_id, ma_bi_mat, ten_can_bo, admin, created_at, update_at', 'safe', 'on' => 'search'),
         );
     }
 
@@ -83,7 +83,7 @@ class User extends ActiveRecord
             'ten_hien_thi' => 'Ten Hien Thi',
             'email' => 'Email',
             'doan_vien_id' => 'Doan Vien',
-            'kich_hoat' => 'Kich Hoat',
+            'ma_bi_mat' => 'Mã bí mật',
             'ten_can_bo' => 'Ten Can Bo',
             'admin' => 'Admin',
             'created_at' => 'Created At',
@@ -108,7 +108,7 @@ class User extends ActiveRecord
         $criteria->compare('ten_hien_thi', $this->ten_hien_thi, true);
         $criteria->compare('email', $this->email, true);
         $criteria->compare('doan_vien_id', $this->doan_vien_id);
-        $criteria->compare('kich_hoat', $this->kich_hoat);
+        $criteria->compare('ma_bi_mat', $this->ma_bi_mat);
         $criteria->compare('ten_can_bo', $this->ten_can_bo, true);
         $criteria->compare('admin', $this->admin);
         $criteria->compare('created_at', $this->created_at, true);

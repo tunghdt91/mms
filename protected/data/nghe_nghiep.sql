@@ -1,0 +1,11 @@
+INSERT INTO nghe_nghiep (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 1, 'Học sinh', NULL);
+INSERT INTO nghe_nghiep (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 2, 'Sinh viên', NULL);
+INSERT INTO nghe_nghiep (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 3, 'Bác sĩ', NULL);
+INSERT INTO nghe_nghiep (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 4, 'Kỹ sư tin học', NULL);
+INSERT INTO nghe_nghiep (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 5, 'Kỹ sư xây dựng', NULL);
+INSERT INTO nghe_nghiep (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 6, 'Thầy thuốc', NULL);
+INSERT INTO nghe_nghiep (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 7, 'Doanh nhân', NULL);
+INSERT INTO nghe_nghiep (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 8, 'Giáo viên', NULL);
+INSERT INTO nghe_nghiep (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 9, 'Thợ  may', NULL);
+INSERT INTO nghe_nghiep (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 10, 'Thợ điện', NULL);
+INSERT INTO nghe_nghiep (created_at, update_at, id, ten, mo_ta) VALUES ('2013-08-09 11:09:36', '2013-08-09 11:09:36', 11, 'Nghề khác', NULL);
