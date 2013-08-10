@@ -186,30 +186,38 @@
 </div>
 <?php echo CHtml::endForm(); ?>
 <hr style="color: #808080">
-<table width ="100%" border ='2' cellspacing='1'>
-    <th width ='10%' >Mã Đoàn Viên</th>
-    <th width ='20%' >Họ Tên</th>
-    <th width ='10%' >Ngày Sinh</th>
-    <th width ='10%' >Giới Tính</th>
-    <th width ='20%' >Email</th>
-    <th width ='15%' >Ngày Vào Đoàn</th>
-    <th width ='15%' >Đơn Vị</th>
-    <?php
-    foreach ($doan_viens as $doan_vien) {
-        echo "<tr align ='center'>";
-        echo "<td><span style='color: red;'>{$doan_vien->ma_doan_vien}</span></td>";
-        echo "<td><b>";
-        echo CHtml::link("{$doan_vien->ho_ten_dem} {$doan_vien->ten}", array('doanvien/view',
-            'id' => $doan_vien->id));
-        echo "</b></td>";
-        echo "<td>{$doan_vien->ngay_sinh}</td>";
-        echo "<td>";
-        echo $doan_vien->gioi_tinh == 1 ? "Nam" : "Nữ";
-        echo "</td>";
-        echo "<td>{$doan_vien->email}</td>";
-        echo "<td>{$doan_vien->ngay_vao_doan}</td>";
-        echo "<td>{$doan_vien->don_vi->ten}</td>";
-        echo '</tr>';
-    }
-    ?>
-</table>
+<?php
+$dataProvider=new CActiveDataProvider('DoanVien', array(
+    'criteria' => $criteria
+));
+$this->widget('zii.widgets.grid.CGridView', array(
+    'dataProvider'=>$dataProvider,
+    'columns' => array(
+        'ma_doan_vien',
+        array(
+            'class'=>'CLinkColumn',
+            'header'=>'Họ Và Tên',
+            'labelExpression'=>'$data->ho_ten_dem.$data->ten' ,
+            'urlExpression'=>'Yii::app()->createUrl("doanvien/view",array("id"=>$data->id))',
+        ),
+//         array(
+//             'class'=>'CDataColumn',
+//             'type'=>'raw',
+//            'header'=>'Ho va ten',
+//            'value'=>'CHtml::link($data->ho_ten_dem, array("doanvien/view", 
+//                "id"=>$data->id
+//            ))',
+//        ),
+        'ngay_sinh',
+        array(
+            'name'=>'Gioi tinh',
+            'value'=>'$data->gioi_tinh == 1 ? "Nam" : "Nữ"',
+        ),
+        'email',
+        'ngay_vao_doan',
+        array(
+            'name'=>'Đơn Vị',
+            'value'=>'$data->don_vi->ten',
+        )
+    )));
+?>
