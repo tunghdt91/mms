@@ -87,6 +87,12 @@
                 'id' => $doanvien->id)
             )
         );
+        echo CHtml::button('Đánh Giá Đoàn Viên', array(
+            'class' => 'btn btn-primary',
+            'submit' => array(
+                'doanvien/danh_gia',
+                'id' => $doanvien->id)
+        ));
     } else {
         echo CHtml::button('Khôi Phục Dữ Liệu', array(
             'class' => 'btn btn-primary',

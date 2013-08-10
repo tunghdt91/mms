@@ -102,6 +102,39 @@ class DoanvienController extends Controller
         ));
     }
     
+    /*@author Pham Tri Thai
+     */
+    public function actionDanh_gia($id)
+    {
+        $doan_vien = $this->loadModel($id);
+        $danh_gia_doan_vien_s = $doan_vien->danh_gia_doan_vien_s;
+        $XEP_LOAI = DanhGiaDoanVien::$XEP_LOAI;
+        $tieuchis = TieuChi::model()->findAll();
+        if (isset($_GET['diem'])) {
+            $i = 0;
+                foreach ($tieuchis as $t)
+            {    
+                $d = new DanhGiaDoanVien;
+                $d->id = time();
+                $d->doan_vien_id = $id;
+                $d->tieu_chi_id = $t->id;
+                $d->diem = $_GET['diem'][$i];
+                $d->xep_loai = $_GET['xeploai'][$i];
+                $d->danh_gia_cua_chi_doan = $_GET['danh_gia_cua_chi_doan'][$i];
+                $d->danh_gia_cua_doan_vien = $_GET['danh_gia_cua_doan_vien'][$i];
+                $d->ghi_chu = $_GET['ghi_chu'][$i];
+                $d->save();
+                $i = $i + 1;
+            }
+        }
+        $this->render('danh_gia', array(
+            'doan_vien' => $doan_vien,
+            'danh_gia_doan_vien_s' => $danh_gia_doan_vien_s,
+            'XEP_LOAI' => $XEP_LOAI,
+            'tieuchis' => $tieuchis,
+        ));
+    }
+    
     /*
      * @author Nguyen Van Cuong
      */
@@ -185,10 +218,10 @@ class DoanvienController extends Controller
             $criteria->addcondition('deleted_at is not null');
         }
         // result
-        $doan_viens = DoanVien::model()->findAll($criteria);
+        $dataProvider = new CActiveDataProvider('DoanVien', array(
+            'criteria' => $criteria
+        ));
         $this->render('index', array(
-            'doan_viens' => $doan_viens,
-            'criteria' => $criteria,
             'title' => $title,
             'dantocs' => $dantocs,
             'ly_luan_chinh_tris' => $ly_luan_chinh_tris,
@@ -213,6 +246,7 @@ class DoanvienController extends Controller
             'email' => $email,
             'phone' => $phone,
             'don_vi' => $don_vi,
+            'dataProvider' => $dataProvider,
         ));
     }
     

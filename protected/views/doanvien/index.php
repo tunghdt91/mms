@@ -191,9 +191,6 @@
 <?php echo CHtml::endForm(); ?>
 <hr style="color: #808080">
 <?php
-$dataProvider=new CActiveDataProvider('DoanVien', array(
-    'criteria' => $criteria
-));
 $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider'=>$dataProvider,
     'columns' => array(
