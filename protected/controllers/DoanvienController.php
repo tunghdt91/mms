@@ -177,6 +177,7 @@ class DoanvienController extends Controller
         $doan_viens = DoanVien::model()->findAll($criteria);
         $this->render('index', array(
             'doan_viens' => $doan_viens,
+            'criteria' => $criteria,
             'title' => $title,
             'dantocs' => $dantocs,
             'ly_luan_chinh_tris' => $ly_luan_chinh_tris,
