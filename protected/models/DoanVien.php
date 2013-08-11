@@ -113,7 +113,7 @@ class DoanVien extends ActiveRecord
         '12' => 12,
     );
     
- 
+    public $image;
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
@@ -149,6 +149,7 @@ class DoanVien extends ActiveRecord
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('id, ma_doan_vien, ten, ho_ten_dem, bi_danh, gioi_tinh, ngay_sinh, que_quan, ho_khau_thuong_tru, ho_khau_tam_tru, email, dien_thoai, dan_toc_id, ton_giao_id, thanh_phan_gia_dinh_xuat_than, nghe_nghiep_id, mo_ta_cong_viec, trinh_do_van_hoa, bang_cap_1, bang_cap_2, ky_nang_ngoai_ngu_id, ky_nang_tin_hoc_id, tinh_trang_suc_khoe, ngay_vao_doan, CMTND, ngay_cap, noi_cap, danh_hieu_id, ly_luan_chinh_tri_id, ban_id, chuc_vu_doan_id, trang_thai, don_vi_id, created_at, update_at, deleted_at', 'safe', 'on' => 'search'),
+            array('image', 'file', 'types' => 'jpg, gif, png', 'allowEmpty' => true),
         );
     }
 
@@ -177,6 +178,19 @@ class DoanVien extends ActiveRecord
             'ly_luan_chinh_tri' => array(self::BELONGS_TO, 'LyLuanChinhTri', 'ly_luan_chinh_tri_id'),
             'doan_vien_di_chuyen_s' => array(self::HAS_MANY, 'DoanVienDiChuyen', 'doan_vien_id'),
             'user' => array(self::HAS_ONE, 'User', 'doan_vien_id'),
+        );
+    }
+    
+    /*
+     * @author QuanNT
+     */
+    public function behaviors()
+    {
+        return array(
+            'ImageBehavior' => array(
+                'class' => 'application.components.ImageBehavior',
+                'attr' => 'ma_doan_vien',
+            ),
         );
     }
 

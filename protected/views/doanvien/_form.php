@@ -174,6 +174,20 @@
                     </div>
                 </div>
             </div>
+            <div class="clear2"></div>
+            <div class="info-user">
+                <div class="row">
+                    <?php echo $form->labelEx($doanvien,'Ảnh chân dung:'); ?>
+                    <?php echo CHtml::activeFileField($doanvien, 'image'); ?>
+                </div>
+            </div>
+            <?php if(!$doanvien->isNewRecord){ ?>
+                <div class="row">
+                    <div class="dv_avatar">
+                        <?php echo CHtml::image($doanvien->getMainImage()); ?>
+                    </div>    
+                </div>
+            <?php } ?> 
         </div>
         <!--end of left info-->
         <div class="dv_right">

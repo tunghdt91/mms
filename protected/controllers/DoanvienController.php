@@ -41,6 +41,8 @@ class DoanvienController extends Controller
         $doanvien = new DoanVien;
         if(isset($_POST['DoanVien']) && isset($_POST['diachinoisinh']) && isset($_POST['diachinoisong'])) {
             $doanvien->attributes = $_POST['DoanVien'];
+            $uploadedFile = CUploadedFile::getInstance($doanvien,'image');
+            $fileName = $uploadedFile;
             $model_noisinh = new DiaChiDayDu();
             $model_noisinh->dia_chi = $_POST['diachinoisinh'];
             if(isset($_POST['DoanVien']['ho_khau_thuong_tru'])) {
@@ -57,6 +59,9 @@ class DoanvienController extends Controller
             $model_noisong->save();
             $doanvien->ho_khau_tam_tru = $model_noisong->id;
             if ($doanvien->save()){
+                if (!empty($uploadedFile)){
+                    $uploadedFile->saveAs($doanvien->createDirectoryIfNotExists().$fileName);
+                }
                 Yii::app()->user->setFlash('success', 'Tạo mới thành công !');
                 $this->redirect(array('doanvien/index'));
             }
@@ -71,11 +76,17 @@ class DoanvienController extends Controller
         $doanvien = $this->loadModel($id);
         if (isset($_POST['DoanVien'])) {
             $doanvien->attributes = $_POST['DoanVien'];
+            $uploadedFile = CUploadedFile::getInstance($doanvien,'image');
+            $fileName = $uploadedFile;
             if($doanvien->save()) {
+                if (!empty($uploadedFile)){
+                    $doanvien->removeMainImage();
+                    $uploadedFile->saveAs($doanvien->createDirectoryIfNotExists().$fileName);
+                }
                 Yii::app()->user->setFlash('success', 'Thông tin đoàn viên đã được thay đổi !');
                 $this->redirect(array('view', 'id' => $doanvien->id)); 
             } else {
-                 Yii::app()->user->setFlash('error', 'Lỗi thay đổi !');
+                 Yii::app()->user->setFlash('warning', 'Lỗi thay đổi !');
                  $this->redirect(array('view', 'id' => $doanvien->id));  
             }
         }

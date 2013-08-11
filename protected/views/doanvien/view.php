@@ -1,11 +1,13 @@
 <br/>
+<?php $this->widget('bootstrap.widgets.TbAlert'); ?>
+<br/>
 <span style="font-size: 20px;">Thông tin của đoàn viên <a><?php echo "{$doanvien->ho_ten_dem} {$doanvien->ten}"; ?></a></span>
 <br/>
 <br/>
 <div class="doanvien_view">
     <div class="r1">
         <div class="dv_avatar">
-            <?php echo CHtml::image(Yii::app()->baseUrl.'/images/no-image.jpg', null, array('width' => '150')); ?>
+            <?php echo CHtml::image($doanvien->getMainImage(), null, array('width' => '150')); ?>
         </div>
         <div class="r1r">
             <ul>
