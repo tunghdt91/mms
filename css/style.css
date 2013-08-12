@@ -43,6 +43,54 @@
     height: 10px;
 }
 
+.title {
+    text-align: center;
+}
+
+.ten_doan_vien{
+    color: #0044cc;
+    font-size: 120%;
+}
+
+.tablelist2
+{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.colSM1
+{
+    width: 5%;
+}
+.colSM2
+{
+    width: 23%;
+}
+.colSM3
+{
+    width: 5%;
+}
+.colSM4
+{
+    width: 7%;
+}
+.colSM5
+{
+    width: 20%;
+}
+.colSM6
+{
+    width: 15%;
+}
+.colSM7
+{
+    width: 15%;
+}
+.colSM8
+{
+    width: 10%;
+}
+
 .text {
     margin-top: -5px;
 }

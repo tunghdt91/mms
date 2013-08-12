@@ -75,13 +75,25 @@
             <?php endif ?>
 
             <?php echo CHtml::image(Yii::app()->baseUrl . '/images/banner.png', null, array("width" => 1372)); ?>
-            <div id="all-content">       
+            <div id="all-content">
                 <div id="slide-bar">
                     <div class="alert alert-warning">Tổ Chức Bộ Máy</div>
                     <ul class="nav nav-list tree">
-                        <li><?php echo CHtml::link('Ban A', array('')); ?></li>
-                        <li><?php echo CHtml::link('Ban B', array('')); ?></li>
-                        <li><?php echo CHtml::link('Ban C', array('')); ?></li>
+                        <?php
+                            $danh_sach_ban = Ban::model()->findAll();
+                            foreach ($danh_sach_ban as $ban) {
+                                echo "<li>";
+                                echo CHtml::link($ban->ten,array('ban/DanhSachThanhVien', 'id' => $ban->id));
+                                echo "</li>";
+                            }
+                        ?>
+                    </ul>
+                    <div class="alert alert-warning">Danh sách đơn vị Đoàn</div>
+                    <ul class="nav nav-list tree">
+                        <?php
+                            $don_vi = $this->current_user->doan_vien->don_vi;
+                            $don_vi->printDonVi();
+                        ?>
                     </ul>
                     <div class="alert alert-warning">Quản Lý Đoàn Viên</div>
                     <ul class="nav nav-list tree">

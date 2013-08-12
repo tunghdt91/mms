@@ -173,5 +173,19 @@ class DonVi extends ActiveRecord
             'criteria' => $criteria,
         ));
     }
-
+    public function printDonVi()
+    {
+        if ($this->don_vi_truc_thuoc_s) {
+            $don_vi_truc_thuoc_s = $this->don_vi_truc_thuoc_s;
+            echo "<li><label class='tree-toggle nav-header'>".CHtml::link($this->ten,array('donvi/view', 'id' => $this->id))."</label>";
+            echo "<ul class='nav nav-list tree'>";
+            foreach ($don_vi_truc_thuoc_s as $don_vi_truc_thuoc) {
+                $don_vi_truc_thuoc->printDonVi();
+            }
+            echo "</ul>";
+            echo "</li>";
+        } else {
+            echo CHtml::link($this->ten,array('donvi/view', 'id' => $this->id));
+        }
+    }
 }
