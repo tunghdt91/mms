@@ -64,6 +64,26 @@
         ));
         ?>
     </div>
+    <div class="xxwide picker">
+        <div class="row">
+            <div class="span2">Độ Tuổi:</div> 
+            <?php
+            echo CHtml::textField('do_tuoi_tu', $do_tuoi_tu, array(
+                'id' => 'do_tuoi_tu',
+                'class' => 'text input',
+                'placeholder' => 'Từ ngày',
+            ));
+            ?> 
+            <?php
+            echo CHtml::textField('do_tuoi_den', $do_tuoi_den, array(
+                'id' => 'do_tuoi_den',
+                'class' => 'text input ',
+                'placeholder' => 'Đến ngày',
+            ));
+            ?>
+        </div>
+    </div>
+    
     <div class="row">
         <div class="span2">Ngày sinh</div>
         <div class="datetimepicker4 span4" class="input-append">
@@ -79,24 +99,6 @@
                 <i data-time-icon="icon-time" data-date-icon="icon-calendar">
                 </i>
             </span>
-        </div>
-    </div>
-    <div class="xxwide picker">
-        <div class="row">
-            <div class="span2">Độ Tuổi:</div> 
-            <?php
-            echo CHtml::textField('do_tuoi_tu', $do_tuoi_tu, array(
-                'id' => 'do_tuoi_tu',
-                'class' => 'text input'
-            ));
-            echo ' - ';
-            ?> 
-            <?php
-            echo CHtml::textField('do_tuoi_den', $do_tuoi_den, array(
-                'id' => 'do_tuoi_den',
-                'class' => 'text input ',
-            ));
-            ?>
         </div>
     </div>
     
@@ -144,10 +146,12 @@
         <?php
         $listData_tinh = CHtml::listData($tinhs, 'id', 'ten');
         echo CHtml::dropDownList('tinh', $tinh, array('none' => ' Tỉnh ') + $listData_tinh, array('id' => 'chon_tinh_1'));
+        echo '&nbsp';
         echo CHtml::dropDownList('huyen', $huyen, array('none' => ' Huyện '), array(
             'id' => 'chon_huyen_1',
             'disabled' => true,
         ));
+        echo '&nbsp';
         echo CHtml::dropDownList('xa', $xa, array('none' => ' Xã '), array(
             'id' => 'chon_xa_1',
             'disabled' => true,
@@ -210,7 +214,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 //        ),
         'ngay_sinh',
         array(
-            'name'=>'Gioi tinh',
+            'name'=>'Giới Tính',
             'value'=>'$data->gioi_tinh == 1 ? "Nam" : "Nữ"',
         ),
         'email',
