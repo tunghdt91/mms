@@ -69,7 +69,7 @@
            <ul class="nav nav-pills nav-stacked">
                <li class="active">
                    <a href="#">
-                       <span class="badge pull-left badge-danger">4</span>
+                       <span class="badge pull-left badge-important">4</span>
                        &nbsp;&nbsp;Hình ảnh hoạt động
                    </a>
                </li>
