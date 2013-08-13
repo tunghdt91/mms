@@ -97,7 +97,7 @@
                     </ul>
                     <div class="alert alert-warning">Quản Lý Đoàn Viên</div>
                     <ul class="nav nav-list tree">
-                        <li><?php echo CHtml::link('Tìm kiếm nâng cao', array('doanvien/index')); ?></li>
+                        <li><?php echo CHtml::link('Tìm kiếm', array('doanvien/index')); ?></li>
                         <li><?php echo CHtml::link('Tạo Mới Đoàn Viên', array('doanvien/create')); ?></li>
                         <li><?php echo CHtml::link('Đoàn Viên Bị Xoá', array('doanvien/index', 'delete' => 1)); ?></li>
                         <li><label class="tree-toggle nav-header">Di Chuyển Đoàn viên</label>
