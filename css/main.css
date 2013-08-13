@@ -56,7 +56,6 @@ clear: both;
     margin-top: 20px;
     float: left;
     width: 20%;
-    border: 1px solid #C9E0ED;
 }
 
 #content {
@@ -122,4 +121,16 @@ li {
 #bottom-right {
     float: right;
     width: 58%;
+}
+
+.ban {
+    display: none;
+}
+
+.qldv_2 {
+    display: none;
+}
+
+.tree li {
+    font-size: 12px;
 }
