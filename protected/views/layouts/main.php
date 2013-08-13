@@ -29,6 +29,14 @@
             $('.qldv').click(function(){
                 $('.qldv_2').slideToggle();
             });
+            
+            $('.dvd').click(function(){
+                $('.dvd_2').slideToggle();
+            });
+            
+            $('.qlht').click(function(){
+                $('.qlht_2').slideToggle();
+            });
         });
         </script>
     </head>
@@ -100,12 +108,12 @@
                             }
                         ?>
                     </ul>
-                    <div class="well-small well"><a><i class="icon-chevron-right"></i>Đơn vị đoàn</a></div>
-                    <ul class="nav nav-list tree">
+                    <div class="well-small well dvd"><a><i class="icon-chevron-right"></i>Đơn vị đoàn</a></div>
+                    <ul class="nav nav-list tree dvd_2">
                         <?php
                             if ($this->current_user != NULL) {
-                                $don_vi = $this->current_user->doan_vien->don_vi;
-                                $don_vi->printDonVi();
+				 $don_vi = $this->current_user->doan_vien->don_vi;
+                                 $don_vi->printDonVi();
                             }
                         ?>
                     </ul>
@@ -121,13 +129,11 @@
                             </ul>
                         </li>
                     </ul>
-                    <div class="well-small well"><a>Thông tin</a></div>
-                    <div class="alert alert-warning">Quản Lý Hệ Thống</div>
-                    <ul class="nav nav-list tree">
+                    <div class="well-small well qlht"><a><i class="icon-chevron-right"></i>Quản Lý Hệ Thống</a></div>
+                    <ul class="nav nav-list tree qlht_2">
                         <li><?php echo CHtml::link('Tạo Mới Đơn Vị', array('donvi/create')); ?></li>
                     </ul>
-                    <div class="alert alert-warning">Liên hệ</div>
-
+                    <div class="well-small well"><a>Thông tin</a></div>
                 </div>
                 <?php echo $content; ?>
             </div>
