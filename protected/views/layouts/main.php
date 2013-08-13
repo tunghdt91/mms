@@ -91,8 +91,8 @@
                     <div class="alert alert-warning">Danh sách đơn vị Đoàn</div>
                     <ul class="nav nav-list tree">
                         <?php
-                            $don_vi = $this->current_user->doan_vien->don_vi;
-                            $don_vi->printDonVi();
+//                            $don_vi = $this->current_user->doan_vien->don_vi;
+//                            $don_vi->printDonVi();
                         ?>
                     </ul>
                     <div class="alert alert-warning">Quản Lý Đoàn Viên</div>
