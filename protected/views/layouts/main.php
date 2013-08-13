@@ -20,6 +20,17 @@
         <?php Yii::app()->bootstrap->register(); ?>
 
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+        <script>
+        $(document).ready(function(){
+            $('.tcbm').click(function(){
+                $('.ban').slideToggle();
+            });
+            
+            $('.qldv').click(function(){
+                $('.qldv_2').slideToggle();
+            });
+        });
+        </script>
     </head>
 
     <body>
@@ -77,8 +88,9 @@
             <?php echo CHtml::image(Yii::app()->baseUrl . '/images/banner.png', null, array("width" => 1372)); ?>
             <div id="all-content">
                 <div id="slide-bar">
-                    <div class="alert alert-warning">Tổ Chức Bộ Máy</div>
-                    <ul class="nav nav-list tree">
+                    <ul class="nav nav-tabs nav-stacked"><li class="disabled" style="background: #CCFF66; font-weight: bold; color: orange;"><a href="#">Danh mục quản lý</a></li></ul>
+                    <div class="well-small well tcbm"><a><i class="icon-chevron-right"></i>Tổ Chức Bộ Máy</a></div>
+                    <ul class="nav nav-list tree ban">
                         <?php
                             $danh_sach_ban = Ban::model()->findAll();
                             foreach ($danh_sach_ban as $ban) {
@@ -88,15 +100,15 @@
                             }
                         ?>
                     </ul>
-                    <div class="alert alert-warning">Danh sách đơn vị Đoàn</div>
+                    <div class="well-small well"><a><i class="icon-chevron-right"></i>Đơn vị đoàn</a></div>
                     <ul class="nav nav-list tree">
                         <?php
 //                            $don_vi = $this->current_user->doan_vien->don_vi;
 //                            $don_vi->printDonVi();
                         ?>
                     </ul>
-                    <div class="alert alert-warning">Quản Lý Đoàn Viên</div>
-                    <ul class="nav nav-list tree">
+                    <div class="well-small well qldv"><a><i class="icon-chevron-right"></i>Quản Lý Đoàn Viên</a></div>
+                    <ul class="nav nav-list tree qldv_2">
                         <li><?php echo CHtml::link('Tìm kiếm', array('doanvien/index')); ?></li>
                         <li><?php echo CHtml::link('Tạo Mới Đoàn Viên', array('doanvien/create')); ?></li>
                         <li><?php echo CHtml::link('Đoàn Viên Bị Xoá', array('doanvien/index', 'delete' => 1)); ?></li>
@@ -107,7 +119,7 @@
                             </ul>
                         </li>
                     </ul>
-                    <div class="alert alert-warning">Liên hệ</div>
+                    <div class="well-small well"><a>Thông tin</a></div>
                 </div>
                 <?php echo $content; ?>
             </div>
