@@ -34,5 +34,43 @@ class DonviController extends Controller
         }
         return $model;
     }
+    
+    /*@author Nguyen Van Cuong
+     */
+    public function actionCreate()
+    {
+        $donvi = new DonVi;
+        if(isset($_POST['DonVi']) && $_POST['DonVi']['loai_don_vi'] != 'none') {
+            $donvi->attributes = $_POST['DonVi'];
+            if ($donvi->save()){
+                Yii::app()->user->setFlash('success', 'Tạo mới thành công !');
+                $this->redirect(array('donvi/create'));
+            }
+        }
+        $this->render('create', array(
+            'donvi' => $donvi,
+        ));
+    }
+    
+    public function actionDataDonVi() {
+        if (!Yii::app()->request->isAjaxRequest) {
+            $this->render('/site/error', array(
+                'code' => 403,
+                'message' => 'Forbidden',
+            ));
+            Yii::app()->end();
+        }
+        
+        if (isset($_POST['loai_don_vi'])) {
+           $results = array();
+           $criteria = new CDbCriteria();
+           $criteria->condition = "loai_don_vi = ({$_POST['loai_don_vi']} - 1)";
+           $kqs = DonVi::model()->findAll($criteria);
+           foreach ($kqs as $kq) {
+                $results[$kq->id] = $kq->ten;
+           }
+           echo json_encode($results);
+        }
+    }
 }
 ?>
