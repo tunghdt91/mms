@@ -88,6 +88,7 @@
             <?php echo CHtml::image(Yii::app()->baseUrl . '/images/banner.png', null, array("width" => 1372)); ?>
             <div id="all-content">
                 <div id="slide-bar">
+                    <ul class="nav nav-tabs nav-stacked"><li class="disabled" style="background: #CCFF66; font-weight: bold; color: orange;"><a href="#">Danh mục quản lý</a></li></ul>
                     <div class="well-small well tcbm"><a><i class="icon-chevron-right"></i>Tổ Chức Bộ Máy</a></div>
                     <ul class="nav nav-list tree ban">
                         <?php

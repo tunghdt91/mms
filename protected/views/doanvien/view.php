@@ -39,7 +39,6 @@
         </div>
     </div>
 </div>
-<hr/>
 
 <table class='detail-view table table-striped table-condensed' id='yw1'>
     <tbody>
