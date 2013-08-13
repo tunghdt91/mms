@@ -39,7 +39,7 @@
  * @property string $deleted_at
  * @property string $CMTND
  * @property string $ngay_cap
- * @property string $noi_cap
+ * @property integer $noi_cap
  *
  * The followings are the available model relations:
  * @property DanhGiaDoanVien[] $danhGiaDoanViens
@@ -59,6 +59,7 @@
  * @property LyLuanChinhTri $lyLuanChinhTri
  * @property DoanVienDiChuyen[] $doanVienDiChuyens
  * @property User[] $users
+ * @property Tinh $tinh
  */
 class DoanVien extends ActiveRecord
 {
@@ -135,8 +136,8 @@ class DoanVien extends ActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('gioi_tinh, que_quan, ho_khau_thuong_tru, ho_khau_tam_tru, dan_toc_id, ton_giao_id, nghe_nghiep_id, trinh_do_van_hoa, ky_nang_ngoai_ngu_id, ky_nang_tin_hoc_id, tinh_trang_suc_khoe, danh_hieu_id, ly_luan_chinh_tri_id, ban_id, chuc_vu_doan_id, trang_thai, don_vi_id', 'numerical', 'integerOnly' => true),
-            array('ma_doan_vien, ten, ho_ten_dem, bi_danh, email, dien_thoai, thanh_phan_gia_dinh_xuat_than, bang_cap_1, bang_cap_2, CMTND, noi_cap', 'length', 'max' => 255),
+            array('gioi_tinh, que_quan, ho_khau_thuong_tru, ho_khau_tam_tru, dan_toc_id, ton_giao_id, nghe_nghiep_id, trinh_do_van_hoa, ky_nang_ngoai_ngu_id, ky_nang_tin_hoc_id, tinh_trang_suc_khoe, danh_hieu_id, ly_luan_chinh_tri_id, ban_id, chuc_vu_doan_id, trang_thai, don_vi_id, noi_cap', 'numerical', 'integerOnly' => true),
+            array('ma_doan_vien, ten, ho_ten_dem, bi_danh, email, dien_thoai, thanh_phan_gia_dinh_xuat_than, bang_cap_1, bang_cap_2, CMTND', 'length', 'max' => 255),
             array('ngay_sinh, mo_ta_cong_viec, ngay_vao_doan, created_at, update_at', 'safe'),
             array('ten', 'required', 'message' => 'Tên không được bỏ trống.'),
             array('ho_ten_dem', 'required', 'message' => 'Họ tên đệm không được bỏ trống.'),
@@ -178,6 +179,7 @@ class DoanVien extends ActiveRecord
             'ly_luan_chinh_tri' => array(self::BELONGS_TO, 'LyLuanChinhTri', 'ly_luan_chinh_tri_id'),
             'doan_vien_di_chuyen_s' => array(self::HAS_MANY, 'DoanVienDiChuyen', 'doan_vien_id'),
             'user' => array(self::HAS_ONE, 'User', 'doan_vien_id'),
+            'noi_cap_CMTND' => array(self::BELONGS_TO, 'Tinh', 'noi_cap'),
         );
     }
     
@@ -276,7 +278,7 @@ class DoanVien extends ActiveRecord
         $criteria->compare('ngay_vao_doan', $this->ngay_vao_doan, true);
         $criteria->compare('CMTND', $this->CMTND, true);
         $criteria->compare('ngay_cap', $this->ngay_cap, true);
-        $criteria->compare('noi_cap', $this->noi_cap, true);
+        $criteria->compare('noi_cap', $this->noi_cap);
         $criteria->compare('danh_hieu_id', $this->danh_hieu_id);
         $criteria->compare('ly_luan_chinh_tri_id', $this->ly_luan_chinh_tri_id);
         $criteria->compare('ban_id', $this->ban_id);

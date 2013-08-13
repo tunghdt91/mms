@@ -48,7 +48,6 @@ class DoanVienDiChuyen extends ActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('id', 'required'),
             array('id, doan_vien_id, don_vi_di_id, don_vi_den_id', 'numerical', 'integerOnly' => true),
             array('nguyen_nhan, ngay_di_chuyen, ghi_chu, created_at, update_at', 'safe'),
             // The following rule is used by search().

@@ -17,17 +17,19 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'labelExpression'=>'$data->ho_ten_dem.$data->ten' ,
             'urlExpression'=>'Yii::app()->createUrl("doanvien/view",array("id"=>$data->id))',
         ),
-        'ngay_sinh',
-        array(
-            'name'=>'Giới Tính',
-            'value'=>'$data->gioi_tinh == 1 ? "Nam" : "Nữ"',
-        ),
-        'email',
-        'ngay_vao_doan',
         array(
             'name' => 'Chức vụ',
-            'value' => '$data->chuc_vu_doan->ten',
-        )
+            'value' => '$data->chuc_vu_doan ? $data->chuc_vu_doan->ten : ""',
+        ),
+        array(
+            'name' => "Trình độ chuyên môn",
+            'value' => '$data->bang_cap_1'
+        ),
+        array(
+            'name' => "Trình độ chính trị",
+            'value' => '$data->ly_luan_chinh_tri ? $data->ly_luan_chinh_tri->ten : ""',
+        ),
+        'dien_thoai',
     )));
 ?>
 <?php

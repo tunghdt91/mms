@@ -71,7 +71,6 @@ class ChucVuDoan extends ActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('id', 'required'),
             array('id, loai_don_vi, quan_ly_don_vi_doan, quan_ly_doan_vien, quan_ly_can_bo, danh_gia_xep_loai_doan_vien, danh_gia_xep_loai_can_bo, thay_doi_chuc_vu', 'numerical', 'integerOnly' => true),
             array('ten', 'length', 'max' => 255),
             array('mo_ta, created_at, update_at', 'safe'),
