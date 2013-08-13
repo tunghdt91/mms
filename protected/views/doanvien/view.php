@@ -87,6 +87,7 @@
                 'id' => $doanvien->id)
             )
         );
+        echo '&nbsp;&nbsp;';
         echo CHtml::button('Đánh Giá Đoàn Viên', array(
             'class' => 'btn btn-primary',
             'submit' => array(
