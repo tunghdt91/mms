@@ -50,7 +50,7 @@
                <li class="active">
                    <a href="#">
                        <span class="badge pull-left badge-info">3</span>
-                       &nbsp;&nbsp;Hỗ trợ kỹ thuật
+                       &nbsp;&nbsp;Hỗ trợ - Liên kết
                    </a>
                </li>
            </ul>
@@ -62,6 +62,11 @@
            <div class="row">
                <div class="span5">Hỗ trợ diễn đàn</div>
                <div class="span7"><img src='http://opi.yahoo.com/online?u=hackker_boy91&m=g&t=2'/></div>
+           </div>
+           <div class="row">
+               <div class="span12">
+                   <div class="fb-like" data-href="http://developers.facebook.com/docs/reference/plugins/like" data-width="500" data-layout="button_count" data-show-faces="true" data-send="true"></div>
+               </div>
            </div>
        </div> <!-- enf of bottom left-->
        
