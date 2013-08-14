@@ -136,5 +136,26 @@ class User extends ActiveRecord
     {
         return $this->encryptPassword($password) === $this->password;
     }
-
+    
+     /**
+     * @author Pham Tri Thai
+     * kiem tra user admin
+     */
+    public function isAdmin()
+    {
+        return $this->admin == 1;
+    }
+    
+    /**
+     * @author Pham Tri Thai
+     * Lay don vi cua user
+     */
+    public function getDonVi()
+    {
+        if ($this->isAdmin()) {
+            return DonVi::model ()->findByPk (1);
+        } else {
+            return $this->doan_vien->don_vi;
+        }
+    }
 }

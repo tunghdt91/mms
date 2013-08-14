@@ -12,6 +12,7 @@
  * The followings are the available model relations:
  * @property DonVi[] $donVis
  * @property Huyen[] $huyens
+ * @property CapCMTND[] $capCMTNDs
  */
 class Tinh extends ActiveRecord
 {
@@ -41,7 +42,6 @@ class Tinh extends ActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id', 'required'),
 			array('id', 'numerical', 'integerOnly'=>true),
 			array('ten', 'length', 'max'=>255),
 			array('created_at, update_at', 'safe'),
@@ -61,6 +61,7 @@ class Tinh extends ActiveRecord
 		return array(
 			'don_vi_s' => array(self::HAS_MANY, 'DonVi', 'tinh_id'),
 			'huyen_s' => array(self::HAS_MANY, 'Huyen', 'tinh_id'),
+            'cap_CMTND_s' => array(self::HAS_MANY, 'DoanVien', 'noi_cap'),
 		);
 	}
 

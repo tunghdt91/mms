@@ -112,8 +112,8 @@
                     <ul class="nav nav-list tree dvd_2">
                         <?php
                             if ($this->current_user != NULL) {
-				 $don_vi = $this->current_user->doan_vien->don_vi;
-                                 $don_vi->printDonVi();
+                                $don_vi = $this->current_user->getDonVi();
+                                $don_vi->printDonVi();
                             }
                         ?>
                     </ul>

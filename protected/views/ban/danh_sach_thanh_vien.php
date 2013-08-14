@@ -18,7 +18,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
         array(
             'name' => 'Chức vụ',
-            'value' => '$data->chuc_vu_doan->ten',
+            'value' => '$data->chuc_vu_doan ? $data->chuc_vu_doan->ten : ""',
         ),
         array(
             'name' => "Trình độ chuyên môn",
@@ -26,7 +26,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
         array(
             'name' => "Trình độ chính trị",
-            'value' => '$data->ly_luan_chinh_tri->ten',
+            'value' => '$data->ly_luan_chinh_tri ? $data->ly_luan_chinh_tri->ten : ""',
         ),
         'dien_thoai',
     )));

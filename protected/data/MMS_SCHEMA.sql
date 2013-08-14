@@ -7,7 +7,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 -- Table ban
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS ban (
-  `id` INT(11) NOT NULL ,
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `ten` VARCHAR(255) NULL DEFAULT NULL ,
   `mo_ta` TEXT NULL DEFAULT NULL ,
   `created_at` DATETIME NULL DEFAULT NULL ,
@@ -22,7 +22,7 @@ COMMENT = 'ban nganh';
 -- Table chuc_vu_doan
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS chuc_vu_doan (
-  `id` INT(11) NOT NULL ,
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `ten` VARCHAR(255) NULL DEFAULT NULL ,
   `loai_don_vi` INT(11) NULL DEFAULT NULL ,
   `mo_ta` TEXT NULL DEFAULT NULL ,
@@ -43,7 +43,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table dan_toc
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS dan_toc (
-  `id` INT(11) NOT NULL ,
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `ten` VARCHAR(255) NULL DEFAULT NULL ,
   `mo_ta` TEXT NULL DEFAULT NULL ,
   `created_at` DATETIME NULL DEFAULT NULL ,
@@ -57,7 +57,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table danh_gia_doan_vien
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS danh_gia_doan_vien (
-  `id` INT(11) NOT NULL ,
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `doan_vien_id` INT(11) NULL DEFAULT NULL ,
   `tieu_chi_id` INT(11) NULL DEFAULT NULL ,
   `diem` INT(11) NULL DEFAULT NULL ,
@@ -77,7 +77,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table danh_hieu
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS danh_hieu (
-  `id` INT(11) NOT NULL ,
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `ten` VARCHAR(255) NULL DEFAULT NULL ,
   `mo_ta` TEXT NULL DEFAULT NULL ,
   `created_at` DATETIME NULL DEFAULT NULL ,
@@ -131,7 +131,7 @@ CREATE  TABLE IF NOT EXISTS doan_vien (
   `ngay_vao_doan` DATE NULL DEFAULT NULL ,
   `CMTND` VARCHAR(255) NULL DEFAULT NULL ,
   `ngay_cap` DATE NULL DEFAULT NULL ,
-  `noi_cap` VARCHAR(255) NULL DEFAULT NULL ,
+  `noi_cap` INT(11) NULL DEFAULT NULL ,
   `danh_hieu_id` INT(11) NULL DEFAULT NULL ,
   `ly_luan_chinh_tri_id` INT(11) NULL DEFAULT NULL ,
   `ban_id` INT(11) NULL DEFAULT NULL ,
@@ -150,7 +150,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table doan_vien_di_chuyen
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS doan_vien_di_chuyen (
-  `id` INT(11) NOT NULL ,
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `doan_vien_id` INT(11) NULL DEFAULT NULL ,
   `don_vi_di_id` INT(11) NULL DEFAULT NULL ,
   `don_vi_den_id` INT(11) NULL DEFAULT NULL ,
@@ -197,7 +197,7 @@ COMMENT = ' (co so Doan) co the la co so Doan cua quan huyen, xa phuong';
 -- Table huyen
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS huyen (
-  `id` INT(11) NOT NULL ,
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `tinh_id` INT(11) NULL DEFAULT NULL ,
   `ten` VARCHAR(255) NULL DEFAULT NULL ,
   `created_at` DATETIME NULL DEFAULT NULL ,
@@ -239,7 +239,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table ly_luan_chinh_tri
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS ly_luan_chinh_tri (
-  `id` INT(11) NOT NULL ,
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `ten` VARCHAR(255) NULL DEFAULT NULL ,
   `mo_ta` TEXT NULL DEFAULT NULL ,
   `created_at` DATETIME NULL DEFAULT NULL ,
@@ -268,7 +268,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table tieu_chi
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS tieu_chi (
-  `id` INT(11) NOT NULL ,
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `ten` TEXT NULL DEFAULT NULL ,
   `mo_ta` TEXT NULL DEFAULT NULL ,
   `created_at` DATETIME NULL DEFAULT NULL ,
@@ -282,7 +282,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table tinh
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS tinh (
-  `id` INT(11) NOT NULL ,
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `ten` VARCHAR(255) NULL DEFAULT NULL ,
   `created_at` DATETIME NULL DEFAULT NULL ,
   `update_at` DATETIME NULL DEFAULT NULL ,
@@ -295,7 +295,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table ton_giao
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS ton_giao (
-  `id` INT(11) NOT NULL ,
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `ten` VARCHAR(255) NULL DEFAULT NULL ,
   `mo_ta` TEXT NULL DEFAULT NULL ,
   `created_at` DATETIME NULL DEFAULT NULL ,
@@ -330,7 +330,7 @@ COMMENT = 'admin va cac tai khoan quan ly cua cac co so Doan';
 -- Table xa
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS xa (
-  `id` INT(11) NOT NULL ,
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `huyen_id` INT(11) NULL DEFAULT NULL ,
   `ten` VARCHAR(255) NULL DEFAULT NULL ,
   `created_at` DATETIME NULL DEFAULT NULL ,

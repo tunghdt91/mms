@@ -41,7 +41,6 @@ class TonGiao extends ActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id', 'required'),
 			array('id', 'numerical', 'integerOnly'=>true),
 			array('ten', 'length', 'max'=>255),
 			array('mo_ta, created_at, update_at', 'safe'),

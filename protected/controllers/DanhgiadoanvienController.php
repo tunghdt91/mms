@@ -24,7 +24,7 @@ class DanhgiadoanvienController extends Controller
 		$model=new DanhGiaDoanVien;
         $doan_vien = DoanVien::model()->findByPk($_GET['doanvienid']);
         $tieu_chi = TieuChi::model()->findByPk($_GET['tieuchiid']);
-        $can_bo_danh_gia_id = $this->current_user->doan_vien->id;
+        $can_bo_danh_gia_id = $this->current_user->isAdmin() ? NULL : $this->current_user->doan_vien->id;
 		if(isset($_POST['DanhGiaDoanVien']))
 		{
 			$model->attributes=$_POST['DanhGiaDoanVien'];
