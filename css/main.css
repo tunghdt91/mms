@@ -141,3 +141,11 @@ li {
 .tree li {
     font-size: 12px;
 }
+
+.well a {
+    cursor: pointer;
+}
+
+.well a:hover {
+    color: red;
+}

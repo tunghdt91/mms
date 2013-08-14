@@ -185,7 +185,7 @@ class DonVi extends ActiveRecord
             echo "</ul>";
             echo "</li>";
         } else {
-            echo CHtml::link($this->ten,array('donvi/view', 'id' => $this->id));
+            echo "<li>".CHtml::link($this->ten,array('donvi/view', 'id' => $this->id))."</li>";
         }
     }
 }
